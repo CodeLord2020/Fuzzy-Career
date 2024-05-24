@@ -1,0 +1,114 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+
+.container {
+    max-width: 600px;
+    margin: auto;
+}
+
+
+h1, h2, h3 {
+    color: #0056b3;
+}
+
+footer {
+    background-color: #f1f1f1;
+    padding: 20px 0;
+}
+
+/* Homepage styles */
+.jumbotron {
+    background-color: #28a745;
+    color: white;
+    padding: 40px 20px;
+    margin-bottom: 20px;
+}
+
+/* .jumbotron {
+    background-color: #f8f9fa;
+    padding: 2rem 1rem;
+} */
+
+.card {
+    margin-bottom: 20px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.subject-checkbox {
+    margin-right: 10px;
+}
+
+.btn-primary {
+    margin: 0.5rem;
+}
+
+#subject-selection {
+    display: none;
+}
+
+#error-message {
+    color: red;
+    font-weight: bold;
+}
+
+#field-selection label,
+#subjects-selection label {
+    font-weight: bold;
+}
+
+.subjects-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.subjects-row .form-group {
+    flex: 1 1 45%;
+    margin-right: 20px;
+}
+
+#submit-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+#submit-button:hover {
+    background-color: #218838;
+}
+
+#error-message {
+    color: red;
+    font-weight: bold;
+}
+
+/* Result page styles */
+.card-title {
+    font-size: 1.5rem;
+}
+
+.list-group-item {
+    font-size: 1.2rem;
+}
+
+.badge {
+    font-size: 1rem;
+}
+
+.chart-container {
+    width: 300px;
+    height: 300px;
+    text-align: center;
+}
+
+.chart-container img {
+    max-width: 100%;
+    max-height: 100%;
+}
