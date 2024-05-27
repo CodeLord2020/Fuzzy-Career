@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuzzyCareer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+    <header>
+        <h1>FuzzyCareer</h1>
+        <p>Discover your ideal career based on your academic strengths</p>
+    </header>
+    <main>
+        <section id="field-selection">
+            <h2>Select Your Field of Study</h2>
+            <div class="field-buttons">
+                <button id="science-btn" onclick="selectField('science')">Science</button>
+                <button id="commercial-btn" onclick="selectField('commercial')">Commercial</button>
+                <button id="arts-btn" onclick="selectField('arts')">Arts</button>
+                <button id="technology-btn" onclick="selectField('technology')">Technology</button>
+            </div>
+        </section>
+        <section id="subject-selection" style="display: none;">
+            <h2>Select Your Subjects and Enter Scores</h2>
+            <h4>Enter 0 if you are not offering the subject.</h4>
+            <form id="subject-form">
+                <div id="subjects-container"></div>
+                <button type="button" onclick="submitScores()">Submit Scores</button>
+            </form>
+        </section>
+        <section id="career-recommendation" style="display: none;">
+            <h2>Your Career Recommendations</h2>
+            <ul id="recommendation-list"></ul>
+            <div id="images-container"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 FuzzyCareer. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>

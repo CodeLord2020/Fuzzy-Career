@@ -1,0 +1,138 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+}
+
+header {
+    background: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header p {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+main {
+    padding: 2em;
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 1.8em;
+    margin-top: 0;
+}
+
+.field-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin: 2em 0;
+}
+
+.field-buttons button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 1em 2em;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.field-buttons button:hover {
+    background: #45a049;
+}
+
+#subject-selection form {
+    display: flex;
+    flex-direction: column;
+}
+
+#subjects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.subject-item {
+    flex: 0 0 48%;
+    margin-bottom: 1em;
+}
+
+.subject-item label {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+.subject-item input {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#subject-selection button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 1em;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    align-self: center;
+    margin-top: 1em;
+}
+
+#subject-selection button:hover {
+    background: #45a049;
+}
+
+#career-recommendation ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#career-recommendation li {
+    background: #e0f7fa;
+    margin: 0.5em 0;
+    padding: 1em;
+    border-left: 5px solid #4CAF50;
+}
+
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background: #4CAF50;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .field-buttons {
+        flex-direction: column;
+    }
+
+    .field-buttons button {
+        margin-bottom: 1em;
+    }
+
+    .subject-item {
+        flex: 0 0 100%;
+    }
+}
