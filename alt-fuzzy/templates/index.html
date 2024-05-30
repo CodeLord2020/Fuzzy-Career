@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: rgb(165, 186, 196);
+            background-color: rgb(71, 92, 101);
         }
 
         #error-message {
@@ -48,38 +48,21 @@
             </div>
         </div>
 
-        <!-- <section id="field-selection">
-            <h2>Select Your Field of Study</h2>
-            <div class="btn-group">
-                <label class="field-btn">
-                    <input type="radio" name="field" onclick="selectField('science')"> Science
-                </label>
-                <label class="field-btn">
-                    <input type="radio" name="field" onclick="selectField('commercial')"> Commercial
-                </label>
-                <label class="field-btn">
-                    <input type="radio" name="field" onclick="selectField('arts')"> Arts
-                </label>
-                <label class="field-btn">
-                    <input type="radio" name="field" onclick="selectField('technology')"> Technology
-                </label>
-            </div>
-        </section> -->
-
 
 
 
         <div id="subject-selection" class="mt-5" style="display: none;">
-            <h2 class="text-center" style="color: whitesmoke;">Enter All Scores (0-100)</h2>
+            <h2 class="text-center" style="color: whitesmoke;">Enter Your Grades</h2>
             <form id="subject-form" class="mt-4">
                 <div id="subjects-container"></div>
                 <div class="text-center mt-4">
                     <p id="error-message" style="background-color: azure; color: rgb(255, 0, 0);">Error: </p>
-                    <button type="button" class="btn btn-success" id="submit-button" onclick="submitScores()">Subbmit</button>
+                    <button type="button" class="btn btn-success" id="submit-button" onclick="submitScores()">Submit</button>
                 </div>
                 
             </form>
         </div>
+
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

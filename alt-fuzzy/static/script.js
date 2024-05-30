@@ -85,8 +85,18 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     const subjectsContainer = document.getElementById('subjects-container');
-    const submitButton = document.getElementById('submit-button');
     const errorMessage = document.getElementById('error-message');
+    const gradeMap = {
+        'A1': 'A1',
+        'B2': 'B2',
+        'B3': 'B3',
+        'C4': 'C4',
+        'C5': 'C5',
+        'C6': 'C6',
+        'D7': 'D7',
+        'E8': 'E8',
+        'F9': 'F9'
+    };
 
     window.selectField = function (field) {
         fetch('/get_subjects', {
@@ -103,8 +113,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 const div = document.createElement('div');
                 div.classList.add('form-group');
                 div.innerHTML = `
-                    <label for="${subject}" style="color: whitesmoke;">${subject}</label>
-                    <input type="number" class="form-control" id="${subject}" name="${subject}" min="0" max="100" required>
+                <label for="${subject}" style="color: whitesmoke;">${subject}</label>
+                <select class="form-control" id="${subject}" name="${subject}" required>
+                    <option value="" selected disabled>Select grade</option>
+                    <option value="A1">A1 - Excellent</option>
+                    <option value="B2">B2 - Very Good</option>
+                    <option value="B3">B3 - Good</option>
+                    <option value="C4">C4 - Credit</option>
+                    <option value="C5">C5 - Credit</option>
+                    <option value="C6">C6 - Credit</option>
+                    <option value="D7">D7 - Pass</option>
+                    <option value="E8">E8 - Pass</option>
+                    <option value="F9">F9 - Fail</option>
+                </select>
                 `;
                 subjectsContainer.appendChild(div);
             });
@@ -112,11 +133,22 @@ document.addEventListener('DOMContentLoaded', function () {
             const optionalDiv = document.createElement('div');
             optionalDiv.classList.add('form-group');
             optionalDiv.innerHTML = `
-                <label for="optional" style="color: whitesmoke;">Optional Subject</label>
-                <select class="form-control" id="optional" name="optional" required>
-                    ${data.optional.map(sub => `<option value="${sub}">${sub}</option>`).join('')}
-                </select>
-                <input type="number" class="form-control mt-2" id="optional_score" name="optional_score" min="0" max="100" required>
+            <label for="optional" style="color: whitesmoke;">Optional Subject</label>
+            <select class="form-control" id="optional" name="optional" required>
+                ${data.optional.map(sub => `<option value="${sub}">${sub}</option>`).join('')}
+            </select>
+            <select class="form-control mt-2" id="optional_score" name="optional_score" required>
+                <option value="" selected disabled>Select grade</option>
+                <option value="A1">A1 - Excellent</option>
+                <option value="B2">B2 - Very Good</option>
+                <option value="B3">B3 - Good</option>
+                <option value="C4">C4 - Credit</option>
+                <option value="C5">C5 - Credit</option>
+                <option value="C6">C6 - Credit</option>
+                <option value="D7">D7 - Pass</option>
+                <option value="E8">E8 - Pass</option>
+                <option value="F9">F9 - Fail</option>
+            </select>
             `;
             subjectsContainer.appendChild(optionalDiv);
             document.getElementById('subject-selection').style.display = 'block';
@@ -126,49 +158,28 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 
-    // submitButton.addEventListener('click', function (e) {
-    //     e.preventDefault();
     window.submitScores = function () {
         const field = document.querySelector('input[name="field"]:checked').id;
-        const inputs = subjectsContainer.querySelectorAll('input');
+        const selects = subjectsContainer.querySelectorAll('select');
         const scores = {};
         const optionalSubject = document.getElementById('optional').value;
+        let valid = true;
 
-        // inputs.forEach(input => {
-        //     const value = parseInt(input.value);
-        //     if (value < 0 || value > 100) {
-        //         errorMessage.textContent = 'Scores must be between 0 and 100.';
-        //         return;
-        //     }
-        //     if (input.id === 'optional_score') {
-        //         scores[optionalSubject] = value;
-        //     } else {
-        //         scores[input.name] = value;
-        //     }
-        // });
-
-        // if (Object.keys(scores).length < 6) {
-        //     errorMessage.textContent = 'Please enter valid scores between 0-100 for all subjects.';
-        //     return;
-        // }
-        let validScores = true;
-        inputs.forEach(input => {
-            const value = parseInt(input.value);
-            if (value < 0 || value > 100) {
-                errorMessage.textContent = 'Scores must be between 0 and 100.';
-                errorMessage.style.display = 'block';
-                validScores = false;
-                return;
-            }
-            if (input.id === 'optional_score') {
-                scores[optionalSubject] = value;
+        selects.forEach(select => {
+            const value = select.value;
+            if (!value) {
+                valid = false;
             } else {
-                scores[input.name] = value;
+                if (select.id === 'optional_score') {
+                    scores[optionalSubject] = gradeMap[value];
+                } else {
+                    scores[select.name] = gradeMap[value];
+                }
             }
         });
 
-        if (!validScores || Object.keys(scores).length < 6) {
-            errorMessage.textContent = 'Please enter valid scores between 0-100 for all subjects.';
+        if (!valid) {
+            errorMessage.textContent = 'Please select a grade for all subjects.';
             errorMessage.style.display = 'block';
             return;
         }

@@ -13,6 +13,20 @@ with open('career_courses.json') as f:
     career_courses = json.load(f)
 
 
+
+grade_to_score = {
+    'A1': 90,
+    'B2': 75,
+    'B3': 70,
+    'C4': 65,
+    'C5': 60,
+    'C6': 55,
+    'D7': 49,
+    'E8': 45,
+    'F9': 39
+}
+
+
 fields = {
 
     'science': {
@@ -160,9 +174,11 @@ def submit_scores():
     data = request.json
     print(data)
     field = data.get('field')
-    scores = data.get('scores')
-    recommendations = compute_recommendations(field, scores)
-    print(recommendations)
+    scores = data.get('scores', {})
+    numerical_scores = {subject: grade_to_score[grade] for subject, grade in scores.items()}
+    print(numerical_scores)
+    # Proceed with the fuzzy logic processing using the numerical scores
+    recommendations = compute_recommendations(field, numerical_scores)
 
     recommended_careers = []
     for career_name, score in recommendations:
@@ -173,6 +189,10 @@ def submit_scores():
     response = jsonify(recommended_careers)
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
+
+
+
+
 
 
 @app.route('/results')
