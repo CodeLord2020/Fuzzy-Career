@@ -14,22 +14,26 @@ with open('career_courses.json') as f:
 
 
 fields = {
+
     'science': {
         'mandatory': ['English', 'Mathematics', 'Physics', 'Chemistry', 'Biology'],
-        'optional': ['Computer Studies', 'Agricultural Science', 'Geography', 'Economics']
+        'optional': ['Computer-Studies', 'Agricultural-Science', 'Geography', 'Economics', 'Technical-Drawing']
     },
     'commercial': {
-        'mandatory': ['English', 'Mathematics', 'Government', 'Commerce', 'Accounting'],
-        'optional': ['Dummy Subject 1', 'Dummy Subject 2', 'Dummy Subject 3', 'Economics']
+        'mandatory': ['English', 'Mathematics', 'Economics', 'Commerce', 'Accounting'],
+        'optional': ['Government', 'Biology', 'Catering/Crafts', 'Civic-Education', 'Computer-Studies']
     },
+
     'arts': {
-        'mandatory': ['English', 'Literature', 'Law', 'Government', 'History'],
-        'optional': ['Dummy Subject 4', 'Dummy Subject 5', 'Dummy Subject 6', 'Economics']
+        'mandatory': ['English',  'Mathematics', 'Literature', 'Economics', 'Government'],
+        'optional': ['Catering/Crafts', 'Civic-Education', 'History', 'Technical-Drawing', 'Law', 'Physical-Education', 'Computer-Studies']
     },
+
     'technology': {
         'mandatory': ['English', 'Mathematics', 'Physics', 'Chemistry', 'Computer Studies'],
-        'optional': ['Dummy Subject 7', 'Dummy Subject 8', 'Dummy Subject 9', 'Data Processing']
+        'optional': ['Economics', 'Technical-Drawing', 'Biology', 'Data Processing', 'Geography']
     }
+
 }
 
 
@@ -37,14 +41,28 @@ fields = {
 
 
 careers = {
-    'science': ["Biologist", "Chemist", "Physicist", "Geologist", "Marine Biologist",
-                "Astronomer", "Microbiologist", "Meteorologist", "Environmental Scientist", "Data Scientist"],
-    'commercial': ["Marketing Manager", "Sales Manager", "Accountant", "Financial Analyst", "Business Consultant",
-                   "Human Resources Manager", "Project Manager", "Supply Chain Manager", "Business Lawyer", "Real Estate Agent"],
-    'arts': ["Visual Artist", "Musician", "Actor", "Writer", "Dancer",
-             "Graphic Designer", "Fashion Designer", "Interior Designer", "Architect", "Filmmaker"],
-    'technology': ["Software Engineer", "Computer Engineer", "Web Developer", "Data Analyst", "Cybersecurity Analyst",
-                   "Network Engineer", "Artificial Intelligence Engineer", "Robotics Engineer", "Biomedical Engineer", "Chemical Engineer"]
+    'science': ["Biologist", "Chemist", "Physicist", "Geologist", "Computing", "Botanist", "Veterinarian", "Teacher",
+                "Medicine", "Microbiologist", "Meteorologist", "Engineering", "Meteorologist", "Zoologist"],
+    
+    
+    
+    
+    'commercial': ["Marketing-Manager", "Sales-Manager", "Entrepreneur", 'Business-Consultant', "Banker", "Financial-Analyst", "Politician", "Teacher",
+                   "Human-Resources-Manager", "Project-Manager", "Supply-Chain-Manager", "Accountant", "Real-Estate-Agent"],
+   
+    
+    
+    
+    'arts': ["Visual-Artist", "Musician", "Actor", "Writer", "Politician", "Journalist", "Teacher", "TV/Radio-Presenter",
+    "Graphic-Designer", "Entrepreneur", "Fashion-Designer", "Interior-Designer", "Architect", "Filmmaker", "Animator"],
+   
+   
+   
+   
+   
+    'technology': ["Software-Engineer", "Computer Engineer", "IT Consultant", "Data Analyst", "Cybersecurity Analyst",
+                    "Teacher", "Architect", "Network Engineer", "Artificial-Intelligence-Engineer",
+                     "Robotics-Engineer", "Biomedical Engineer", "Chemical-Engineer"]
 }
 
 
@@ -94,15 +112,15 @@ science_rules.append(ctrl.Rule(science_fuzzy_vars['English']['Good'] & science_f
 
 # Example rules for commercial careers
 commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['Accounting']['Excellent'], career_outputs['Accountant']['high']))
-commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Commerce']['Good'], career_outputs['Business Consultant']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Commerce']['Good'], career_outputs['Business-Consultant']['medium']))
 
 # Example rules for arts careers
 arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Literature']['Excellent'] & arts_fuzzy_vars['History']['Excellent'], career_outputs['Writer']['high']))
-arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Good'] & arts_fuzzy_vars['Government']['Good'], career_outputs['Business Lawyer']['medium']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Good'] & arts_fuzzy_vars['Government']['Good'], career_outputs['Business-Consultant']['medium']))
 
 # Example rules for technology careers
-technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Excellent'] & technology_fuzzy_vars['Computer Studies']['Excellent'], career_outputs['Software Engineer']['high']))
-technology_rules.append(ctrl.Rule(technology_fuzzy_vars['English']['Excellent'] & technology_fuzzy_vars['Chemistry']['Good'], career_outputs['Chemical Engineer']['high']))
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Excellent'] & technology_fuzzy_vars['Computer Studies']['Excellent'], career_outputs['Software-Engineer']['high']))
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['English']['Excellent'] & technology_fuzzy_vars['Chemistry']['Good'], career_outputs['Chemical-Engineer']['high']))
 
 
 control_systems = {
