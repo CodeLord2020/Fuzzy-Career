@@ -134,10 +134,30 @@ document.addEventListener('DOMContentLoaded', function () {
         const scores = {};
         const optionalSubject = document.getElementById('optional').value;
 
+        // inputs.forEach(input => {
+        //     const value = parseInt(input.value);
+        //     if (value < 0 || value > 100) {
+        //         errorMessage.textContent = 'Scores must be between 0 and 100.';
+        //         return;
+        //     }
+        //     if (input.id === 'optional_score') {
+        //         scores[optionalSubject] = value;
+        //     } else {
+        //         scores[input.name] = value;
+        //     }
+        // });
+
+        // if (Object.keys(scores).length < 6) {
+        //     errorMessage.textContent = 'Please enter valid scores between 0-100 for all subjects.';
+        //     return;
+        // }
+        let validScores = true;
         inputs.forEach(input => {
             const value = parseInt(input.value);
             if (value < 0 || value > 100) {
                 errorMessage.textContent = 'Scores must be between 0 and 100.';
+                errorMessage.style.display = 'block';
+                validScores = false;
                 return;
             }
             if (input.id === 'optional_score') {
@@ -147,10 +167,13 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        if (Object.keys(scores).length < 6) {
+        if (!validScores || Object.keys(scores).length < 6) {
             errorMessage.textContent = 'Please enter valid scores between 0-100 for all subjects.';
+            errorMessage.style.display = 'block';
             return;
         }
+
+        errorMessage.style.display = 'none';
 
         fetch('/submit_scores', {
             method: 'POST',
@@ -183,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
                 li.innerHTML = `
                 <div class="d-flex justify-content-between align-items-center">
-                <h2 class="mb-1">${career}</h2>
+                <h3 class="mb-1">${career}</h3>
                 <span class="badge badge-primary score-badge">${score.toFixed(2)}</span>
                 </div>
                 <ul class="list-group mt-2">

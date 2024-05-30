@@ -8,7 +8,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: rgb(60, 62, 63);
+            background-color: rgb(165, 186, 196);
+        }
+
+        #error-message {
+            display: none;
+            background-color: azure;
+            color: rgb(255, 0, 0);
+            font-weight: bold;
         }
         
     </style>
@@ -63,12 +70,12 @@
 
 
         <div id="subject-selection" class="mt-5" style="display: none;">
-            <h2 class="text-center" style="color: whitesmoke;">Enter Your Scores</h2>
+            <h2 class="text-center" style="color: whitesmoke;">Enter All Scores (0-100)</h2>
             <form id="subject-form" class="mt-4">
                 <div id="subjects-container"></div>
                 <div class="text-center mt-4">
-                    <p id="error-message" class="text-danger text-center mt-3"></p>
-                    <button type="button" class="btn btn-success" id="submit-button" onclick="submitScores()">Submit</button>
+                    <p id="error-message" style="background-color: azure; color: rgb(255, 0, 0);">Error: </p>
+                    <button type="button" class="btn btn-success" id="submit-button" onclick="submitScores()">Subbmit</button>
                 </div>
                 
             </form>
