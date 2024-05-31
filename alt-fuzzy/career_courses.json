@@ -2,9 +2,11 @@
     "Physicist": ["Quantum Mechanics", "Astrophysics", "Nuclear Physics"],
     "Biologist": ["Genetics", "Ecology", "Microbiology"],
     "Chemist": ["Organic Chemistry", "Inorganic Chemistry", "Physical Chemistry"],
+    "Health": ["Anatomy", "Physiology", "Nursing", "Biotech"],
     "Geologist": ["Geophysics", "Mineralogy", "Petrology"],
     "Software Engineer": ["Data Structures", "Algorithms", "Software Design"],
     "Accountant": ["Financial Accounting", "Managerial Accounting", "Tax Accounting"],
     "Writer": ["Creative Writing", "Technical Writing", "Journalism"],
-    "Business Lawyer": ["Contract Law", "Corporate Law", "Intellectual Property Law"]
+    "Business Lawyer": ["Contract Law", "Corporate Law", "Intellectual Property Law"],
+    "Meteorologist": []
 }

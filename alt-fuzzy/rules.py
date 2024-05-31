@@ -2,10 +2,12 @@ from skfuzzy import control as ctrl
 
 
 
+
 ############### SCIENCE FUZZY RULES #####################
-scienceRules = [Arch_rule_1, Arch_rule_2, Arch_rule_3, Arch_rule_4, Arch_rule_5, Arch_rule_6, Arch_rule_7, Arch_rule_8, Arch_rule_9]
 
 
+
+Arch_rule_1 = ctrl.Rule(science_fuzzy_vars['Technical_Drawing'] ['Excellent'] & science_fuzzy_vars['Mathematics']['Excellent'] & science_fuzzy_vars ['Physics']['Good'], Architect['high'])
 Arch_rule_1 = ctrl.Rule(Technical_Drawing['Excellent'] & Mathematics['Excellent'] & Physics['Good'], Architect['high'])
 Arch_rule_2 = ctrl.Rule(Technical_Drawing['Excellent'] & Mathematics['Excellent'] & Computer_Studies['Excellent'], Architect['high'])
 Arch_rule_3 = ctrl.Rule(Technical_Drawing['Excellent'] & Mathematics['Excellent'] & Geography['Good'], Architect['high'])
@@ -37,7 +39,7 @@ Bio_rule_9 = ctrl.Rule(Biology['Average'] & Chemistry['Average'] & Geography['Po
 
 Bot_rule_1 = ctrl.Rule(Biology['Excellent'] & Chemistry['Excellent'] & Agricultural_Science['Good'], Botanist['high'])
 Bot_rule_2 = ctrl.Rule(Biology['Excellent'] & Chemistry['Good'] & Agricultural_Science['Excellent'], Botanist['high'])
-Bot_rule_2 = ctrl.Rule(Biology['Good'] & Chemistry['Excellent'] & Agricultural_Science['Excellent'], Botanist['high'])
+Bot_rule_3 = ctrl.Rule(Biology['Good'] & Chemistry['Excellent'] & Agricultural_Science['Excellent'], Botanist['high'])
 
 Bot_rule_4 = ctrl.Rule(Biology['Good'] & Chemistry['Good'] & Agricultural_Science['Average'], Botanist['medium'])
 Bot_rule_5 = ctrl.Rule(Biology['Good'] & Chemistry['Average'] & Agricultural_Science['Good'], Botanist['medium'])
@@ -50,17 +52,15 @@ Bot_rule_9 = ctrl.Rule(Biology['Average'] & Chemistry['Average'] & Agricultural_
 
 
 
-Chem_rule_1 = ctrl.Rule(Chemistry['Excellent'] & Mathematics['Excellent'] & Physics['Good'], Chemist['high'])
-Chem_rule_2 = ctrl.Rule(Chemistry['Excellent'] & Mathematics['Excellent'] & Biology['Good'], Chemist['high'])
-Chem_rule_3 = ctrl.Rule(Chemistry['Excellent'] & Mathematics['Excellent'] & Computer_Studies['Excellent'], Chemist['high'])
+Chem_rule_1 = ctrl.Rule(Chemistry['Excellent'] & Biology['Excellent'], Chemist['high'])
 
-Chem_rule_4 = ctrl.Rule(Chemistry['Good'] & Mathematics['Good'] & Physics['Average'], Chemist['medium'])
-Chem_rule_5 = ctrl.Rule(Chemistry['Good'] & Mathematics['Good'] & Biology['Average'], Chemist['medium'])
-Chem_rule_6 = ctrl.Rule(Chemistry['Good'] & Mathematics['Good'] & Computer_Studies['Good'], Chemist['medium'])
+Chem_rule_2 = ctrl.Rule(Chemistry['Good'] & Mathematics['Good'] & Biology['Good'], Chemist['medium'])
+Chem_rule_3 = ctrl.Rule(Chemistry['Good'] & Mathematics['Good'] & Biology['Good'], Chemist['medium'])
+Chem_rule_4 = ctrl.Rule(Chemistry['Good'] & Mathematics['Good'] & Agricultural_Science['Good'], Chemist['medium'])
 
-Chem_rule_7 = ctrl.Rule(Chemistry['Average'] & Mathematics['Average'] & Physics['Poor'], Chemist['low'])
-Chem_rule_8 = ctrl.Rule(Chemistry['Average'] & Mathematics['Average'] & Biology['Poor'], Chemist['low'])
-Chem_rule_9 = ctrl.Rule(Chemistry['Average'] & Mathematics['Average'] & Computer_Studies['Average'], Chemist['low'])
+Chem_rule_5 = ctrl.Rule(Chemistry['Average'] & Mathematics['Average'] & Physics['Poor'], Chemist['low'])
+Chem_rule_6 = ctrl.Rule(Chemistry['Average'] & Mathematics['Average'] & Biology['Poor'], Chemist['low'])
+Chem_rule_7 = ctrl.Rule(Chemistry['Average'] & Mathematics['Average'] & Computer_Studies['Average'], Chemist['low'])
 
 
 
@@ -68,60 +68,64 @@ Comp_rule_1 = ctrl.Rule(Computer_Studies['Excellent'] & Mathematics['Excellent']
 Comp_rule_2 = ctrl.Rule(Computer_Studies['Excellent'] & Mathematics['Excellent'] & Chemistry['Good'], Computing['high'])
 Comp_rule_3 = ctrl.Rule(Computer_Studies['Excellent'] & Mathematics['Excellent'] & Biology['Good'], Computing['high'])
 
-Comp_rule_4 = ctrl.Rule(Computer_Studies['Good'] & Mathematics['Good'] & Physics['Average'], Computing['medium'])
-Comp_rule_5 = ctrl.Rule(Computer_Studies['Good'] & Mathematics['Good'] & Chemistry['Average'], Computing['medium'])
-Comp_rule_6 = ctrl.Rule(Computer_Studies['Good'] & Mathematics['Good'] & Biology['Average'], Computing['medium'])
+Comp_rule_4 = ctrl.Rule(Computer_Studies['Good'] & Mathematics['Excellent'] & Physics['Excellent'], Computing['medium'])
+Comp_rule_5 = ctrl.Rule(Computer_Studies['Good'] & Mathematics['Excellent'] & Chemistry['Excellent'], Computing['medium'])
+Comp_rule_6 = ctrl.Rule(Computer_Studies['Good'] & Mathematics['Excellent'] & Technical-Drawing['Excellent'], Computing['medium'])
 
-Comp_rule_7 = ctrl.Rule(Computer_Studies['Average'] & Mathematics['Average'] & Physics['Poor'], Computing['low'])
-Comp_rule_8 = ctrl.Rule(Computer_Studies['Average'] & Mathematics['Average'] & Chemistry['Poor'], Computing['low'])
-Comp_rule_9 = ctrl.Rule(Computer_Studies['Average'] & Mathematics['Average'] & Biology['Average'], Computing['low'])
-
+Comp_rule_7 = ctrl.Rule(Computer_Studies['Average'] | Mathematics['Average'], Computing['low'])
+Comp_rule_8 = ctrl.Rule(Computer_Studies['Average'] & Mathematics['Excellent'] & Chemistry['Excellent'], Computing['low'])
 
 
-Eng_rule_1 = ctrl.Rule(Physics['Excellent'] & Mathematics['Excellent'] & Chemistry['Good'], Engineering['high'])
+
+
+Eng_rule_1 = ctrl.Rule(Physics['Excellent'] & Mathematics['Excellent'] & Chemistry['Excellent'], Engineering['high'])
 Eng_rule_2 = ctrl.Rule(Physics['Excellent'] & Mathematics['Excellent'] & Technical_Drawing['Excellent'], Engineering['high'])
-Eng_rule_3 = ctrl.Rule(Physics['Excellent'] & Mathematics['Excellent'] & Computer_Studies['Good'], Engineering['high'])
+Eng_rule_3 = ctrl.Rule(Physics['Excellent'] & Mathematics['Excellent'] & Computer_Studies['Excellent'], Engineering['high'])
 
-Eng_rule_4 = ctrl.Rule(Physics['Good'] & Mathematics['Good'] & Chemistry['Average'], Engineering['medium'])
-Eng_rule_5 = ctrl.Rule(Physics['Good'] & Mathematics['Good'] & Technical_Drawing['Good'], Engineering['medium'])
-Eng_rule_6 = ctrl.Rule(Physics['Good'] & Mathematics['Good'] & Computer_Studies['Average'], Engineering['medium'])
-
+Eng_rule_4 = ctrl.Rule(Physics['Excellent'] & Mathematics['Good'] & Chemistry['Good'], Engineering['medium'])
+Eng_rule_5 = ctrl.Rule(Physics['Good'] & Mathematics['Excellent'] & Technical_Drawing['Excellent'], Engineering['medium'])
+Eng_rule_6 = ctrl.Rule(Physics['Good'] & Mathematics['Excellent'] & Computer_Studies['Excellent'], Engineering['medium'])
 Eng_rule_7 = ctrl.Rule(Physics['Average'] & Mathematics['Average'] & Chemistry['Poor'], Engineering['low'])
-Eng_rule_8 = ctrl.Rule(Physics['Average'] & Mathematics['Average'] & Technical_Drawing['Average'], Engineering['low'])
-Eng_rule_9 = ctrl.Rule(Physics['Average'] & Mathematics['Average'] & Computer_Studies['Poor'], Engineering['low'])
+
+Eng_rule_8 = ctrl.Rule(Physics['Average'] | Mathematics['Average'] | Technical_Drawing['poor'], Engineering['low'])
+Eng_rule_9 = ctrl.Rule(Physics['Average'] & Mathematics['Average'] & Chemistry['Poor'], Engineering['low'])
 
 
 Geo_rule_1 = ctrl.Rule(Geography['Excellent'] & Chemistry['Excellent'] & Physics['Good'], Geologist['high'])
 Geo_rule_2 = ctrl.Rule(Geography['Excellent'] & Chemistry['Excellent'] & Biology['Good'], Geologist['high'])
 Geo_rule_3 = ctrl.Rule(Geography['Excellent'] & Chemistry['Excellent'] & Agricultural_Science['Excellent'], Geologist['high'])
 
-Geo_rule_4 = ctrl.Rule(Geography['Good'] & Chemistry['Good'] & Physics['Average'], Geologist['medium'])
-Geo_rule_5 = ctrl.Rule(Geography['Good'] & Chemistry['Good'] & Biology['Average'], Geologist['medium'])
-Geo_rule_6 = ctrl.Rule(Geography['Good'] & Chemistry['Good'] & Agricultural_Science['Good'], Geologist['medium'])
+Geo_rule_4 = ctrl.Rule(Geography['Excellent'] & Chemistry['Good'] & Physics['Average'], Geologist['medium'])
+Geo_rule_5 = ctrl.Rule(Geography['Excellent'] & Chemistry['Good'] & Biology['Average'], Geologist['medium'])
+Geo_rule_6 = ctrl.Rule(Geography['Excellent'] & Chemistry['Good'] & Agricultural_Science['Average'], Geologist['medium'])
 
 Geo_rule_7 = ctrl.Rule(Geography['Average'] & Chemistry['Average'] & Physics['Poor'], Geologist['low'])
 Geo_rule_8 = ctrl.Rule(Geography['Average'] & Chemistry['Average'] & Biology['Poor'], Geologist['low'])
 Geo_rule_9 = ctrl.Rule(Geography['Average'] & Chemistry['Average'] & Agricultural_Science['Average'], Geologist['low'])
 
 
+Hea_rule_1 = ctrl.Rule(Biology['Excellent'] & Chemistry['Excellent'] | (English['Good'] | Mathematics['Good']) , Health['high'])
+Hea_rule_2 = ctrl.Rule(Biology['Excellent'] & Chemistry['Good'] & Agricultural_Science['Excellent'], Health['high'])
+Hea_rule_3 = ctrl.Rule(Biology['Excellent'] & Chemistry['Excellent'] & (Agricultural_Science['Good'] | English['Good']) , Health['high'])
 
-Med_rule_1 = ctrl.Rule(Biology['Excellent'] & Chemistry['Excellent'] & Physics['Good'], Medicine['high'])
-Med_rule_2 = ctrl.Rule(Biology['Excellent'] & Chemistry['Excellent'] & Agricultural_Science['Excellent'], Medicine['high'])
-Med_rule_3 = ctrl.Rule(Biology['Excellent'] & Chemistry['Excellent'] & Geography['Good'], Medicine['high'])
+Hea_rule_4 = ctrl.Rule(Biology['Good'] & Chemistry['Excellent'] & Physics['Excellent'], Health['medium'])
+Hea_rule_5 = ctrl.Rule(Biology['Good'] & Chemistry['Excellent'] & Agricultural_Science['Good'], Health['medium'])
 
-Med_rule_4 = ctrl.Rule(Biology['Good'] & Chemistry['Good'] & Physics['Average'], Medicine['medium'])
-Med_rule_5 = ctrl.Rule(Biology['Good'] & Chemistry['Good'] & Agricultural_Science['Good'], Medicine['medium'])
-Med_rule_6 = ctrl.Rule(Biology['Good'] & Chemistry['Good'] & Geography['Average'], Medicine['medium'])
-
-Med_rule_7 = ctrl.Rule(Biology['Average'] & Chemistry['Average'] & Physics['Poor'], Medicine['low'])
-Med_rule_8 = ctrl.Rule(Biology['Average'] & Chemistry['Average'] & Agricultural_Science['Average'], Medicine['low'])
-Med_rule_9 = ctrl.Rule(Biology['Average'] & Chemistry['Average'] & Geography['Poor'], Medicine['low'])
+Hea_rule_6 = ctrl.Rule(Biology['Average'] | Chemistry['Average'], Health['low'])
 
 
 
-Meteo_rule_1 = ctrl.Rule(Physics['Excellent'] & Mathematics['Excellent'] & Geography['Good'], Meteorologist['high'])
-Meteo_rule_2 = ctrl.Rule(Physics['Excellent'] & Mathematics['Excellent'] & Computer_Studies['Excellent'], Meteorologist['high'])
-Meteo_rule_3 = ctrl.Rule(Physics['Excellent'] & Mathematics['Excellent'] & Agricultural_Science['Good'], Meteorologist['high'])
+Med_rule_1 = ctrl.Rule(Biology['Excellent'] & Chemistry['Excellent'] & Physics['Excellent'] & English['Excellent'] & Mathematics['Excellent'], Medicine['high'])
+
+Med_rule_2 = ctrl.Rule(Biology['Excellent'] & Chemistry['Excellent'] & Physics['Excellent'] & (English['Good'] | Mathematics['Good']), Medicine['medium'])
+
+Med_rule_3 = ctrl.Rule(Biology['Good'] | Chemistry['Good'] | Physics['Good'], Medicine['low'])
+
+
+
+Meteo_rule_1 = ctrl.Rule(Physics['Excellent'] & Mathematics['Excellent'] & Geography['Excellent'], Meteorologist['high'])
+Meteo_rule_2 = ctrl.Rule(Physics['Excellent'] & Mathematics['Excellent'] & Chemistry['Excellent'], Meteorologist['high'])
+Meteo_rule_3 = ctrl.Rule(Physics['Excellent'] & Mathematics['Excellent'] & Geography['Good'], Meteorologist['high'])
 
 Meteo_rule_4 = ctrl.Rule(Physics['Good'] & Mathematics['Good'] & Geography['Average'], Meteorologist['medium'])
 Meteo_rule_5 = ctrl.Rule(Physics['Good'] & Mathematics['Good'] & Computer_Studies['Good'], Meteorologist['medium'])
@@ -145,19 +149,6 @@ Micro_rule_7 = ctrl.Rule(Biology['Average'] & Chemistry['Average'] & Physics['Po
 Micro_rule_8 = ctrl.Rule(Biology['Average'] & Chemistry['Average'] & Agricultural_Science['Average'], Microbiologist['low'])
 Micro_rule_9 = ctrl.Rule(Biology['Average'] & Chemistry['Average'] & Geography['Poor'], Microbiologist['low'])
 
-
-
-Micro_rule_1 = ctrl.Rule(Biology['Excellent'] & Chemistry['Excellent'] & Physics['Good'], Microbiologist['high'])
-Micro_rule_2 = ctrl.Rule(Biology['Excellent'] & Chemistry['Excellent'] & Agricultural_Science['Excellent'], Microbiologist['high'])
-Micro_rule_3 = ctrl.Rule(Biology['Excellent'] & Chemistry['Excellent'] & Geography['Good'], Microbiologist['high'])
-
-Micro_rule_4 = ctrl.Rule(Biology['Good'] & Chemistry['Good'] & Physics['Average'], Microbiologist['medium'])
-Micro_rule_5 = ctrl.Rule(Biology['Good'] & Chemistry['Good'] & Agricultural_Science['Good'], Microbiologist['medium'])
-Micro_rule_6 = ctrl.Rule(Biology['Good'] & Chemistry['Good'] & Geography['Average'], Microbiologist['medium'])
-
-Micro_rule_7 = ctrl.Rule(Biology['Average'] & Chemistry['Average'] & Physics['Poor'], Microbiologist['low'])
-Micro_rule_8 = ctrl.Rule(Biology['Average'] & Chemistry['Average'] & Agricultural_Science['Average'], Microbiologist['low'])
-Micro_rule_9 = ctrl.Rule(Biology['Average'] & Chemistry['Average'] & Geography['Poor'], Microbiologist['low'])
 
 
 
@@ -219,8 +210,15 @@ Zoo_rule_9 = ctrl.Rule(Biology['Average'] & Chemistry['Average'] & Geography['Po
 
 
 
-
-
+scienceRules = [Arch_rule_1, Arch_rule_2, Arch_rule_3, Arch_rule_4, Arch_rule_5, Arch_rule_6, Arch_rule_7, Arch_rule_8, Arch_rule_9]
+scienceRules += [Bio_rule_1, Bio_rule_2, Bio_rule_3, Bio_rule_4, Bio_rule_5, Bio_rule_6, Bio_rule_7, Bio_rule_8, Bio_rule_9]
+scienceRules += [Bot_rule_1, Bot_rule_2, Bot_rule_3, Bot_rule_4, Bot_rule_5, Bot_rule_6, Bot_rule_7, Bot_rule_8, Bot_rule_9]
+scienceRules += [Chem_rule_1, Chem_rule_2, Chem_rule_3, Chem_rule_4, Chem_rule_5, Chem_rule_6, Chem_rule_7]
+scienceRules += [Comp_rule_1, Comp_rule_2, Comp_rule_3, Comp_rule_4, Comp_rule_5, Comp_rule_6, Comp_rule_7, Comp_rule_8]
+scienceRules += [Eng_rule_1, Eng_rule_2, Eng_rule_3, Eng_rule_4, Eng_rule_5, Eng_rule_6, Eng_rule_7, Eng_rule_8, Eng_rule_9]
+scienceRules += [Geo_rule_1, Geo_rule_2, Geo_rule_3, Geo_rule_4, Geo_rule_5, Geo_rule_6, Geo_rule_7, Geo_rule_8, Geo_rule_9]
+scienceRules += [Hea_rule_1, Hea_rule_2, Hea_rule_3, Hea_rule_4, Hea_rule_5, Hea_rule_6]
+scienceRules += [Med_rule_1, Med_rule_2, Med_rule_3]
 
 ############### COMMERCIAL FUZZY RULES #####################
 
