@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
                 li.innerHTML = `
                 <div class="d-flex justify-content-between align-items-center">
-                <h3 class="mb-1">${career}</h3>
+                <h4 class="mb-1">${career}</h4>
                 <span class="badge badge-primary score-badge">${score.toFixed(2)}</span>
                 </div>
                 <ul class="list-group mt-2">
