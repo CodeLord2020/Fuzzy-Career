@@ -40,48 +40,88 @@
     <link rel="stylesheet" href="/static/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body {
-            background-color:  rgb(112, 132, 141);
-        }
-        .card-title {
-            margin-bottom: 1rem;
-        }
-        .list-group-item {
-            background-color: #4e4bf1;
-            border: 1px solid #a085f0;
-            margin-bottom: 1rem;
-            padding: 1rem;
-            border-radius: 10px;
-        }
+      body {
+    background-color: rgb(112, 132, 141);
+}
 
-        .list-group-item h3 {
-            margin-bottom: 0.5rem;
-            color: #fbfbfb;
-        }
+.card-title {
+    margin-bottom: 1rem;
+}
 
-        .list-group-item h5 {
-            margin-bottom: 0.5rem;
-        }
-        .list-group-item ul {
-            padding-left: 0;
-            display: flex;
-            flex-wrap: wrap;
-            list-style-type: none;
-        }
-        .list-group-item li {
-            flex: 1 0 30%;
-            margin: 0.5rem;
-            font-weight: bold;
-            padding: 0.5rem;
-            text-align: center;
-            background-color: #ebebcc;
-            border: 1px solid #fbfbfb;
-            border-radius: 5px;
-        }
-        .score-badge {
-            font-size: 1.6rem;
-            margin-left: 4rem;
-        }
+.list-group-item {
+    background-color: #4e4bf1;
+    border: 1px solid #a085f0;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    word-wrap: break-word; /* Added to ensure long words break properly */
+}
+
+.list-group-item h3 {
+    margin-bottom: 0.5rem;
+    color: #fbfbfb;
+}
+
+.list-group-item h5 {
+    margin-bottom: 0.5rem;
+}
+
+.list-group-item ul {
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+.list-group-item li {
+    flex: 1 0 45%; /* Adjusted flex-basis for better wrapping on small screens */
+    margin: 0.5rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    text-align: center;
+    background-color: #ebebcc;
+    border: 1px solid #fbfbfb;
+    border-radius: 5px;
+}
+
+.score-badge {
+    font-size: 1.6rem;
+    margin-left: 4rem;
+}
+
+/* Additional media queries for better responsiveness */
+@media (max-width: 768px) {
+    .list-group-item {
+        padding: 0.5rem; /* Reduce padding for smaller screens */
+    }
+
+    .list-group-item li {
+        flex: 1 0 100%; /* Ensure items take full width on small screens */
+        margin: 0.25rem 0; /* Adjust margin for small screens */
+    }
+
+    .score-badge {
+        font-size: 1.2rem;
+        margin-left: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .list-group-item {
+        padding: 0.5rem; /* Further reduce padding for extra small screens */
+    }
+
+    .list-group-item li {
+        flex: 1 0 100%; /* Ensure items take full width on extra small screens */
+        margin: 0.25rem 0; /* Adjust margin for extra small screens */
+    }
+
+    .score-badge {
+        font-size: 1rem;
+        margin-left: 1rem;
+    }
+}
+
     </style>
 </head>
 <body>
