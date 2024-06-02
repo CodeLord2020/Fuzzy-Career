@@ -31,11 +31,11 @@ fields = {
 
     'science': {
         'mandatory': ['English', 'Mathematics', 'Physics', 'Chemistry', 'Biology'],
-        'optional': ['Computer_Studies', 'Agricultural_Science', 'Geography', 'Economics', 'Technical_Drawing']
+        'optional': ['Computer_Studies', 'Agricultural_Science', 'Geography', 'Economics', 'Technical_Drawing', 'Catering/Crafts']
     },
     'commercial': {
         'mandatory': ['English', 'Mathematics', 'Economics', 'Commerce', 'Accounting'],
-        'optional': ['Government', 'Biology', 'Catering/Crafts', 'Civic_Education', 'Computer_Studies']
+        'optional': ['Government', 'Biology', 'Civic_Education', 'Computer_Studies']
     },
 
     'arts': {
@@ -56,13 +56,13 @@ fields = {
 
 careers = {
     'science': ["Biologist", "Chemist", "Chemical_Engineering", "Health", "Physicist", "Physical_Sciences", "Agriculture", "Geologist", "Computing", "Botanist", "Veterinarian",
-                "Medicine", "Microbiologist", "Meteorologist", "Engineering", "Agricultural_Engineering", "Meteorologist",  "Graphics", "Zoologist"],
+                "Medicine", "Microbiologist", "Meteorologist", "Engineering", "Agricultural_Engineering", "Meteorologist", "Nutritionist", "Graphics", "Zoologist"],
     
     
     
     
-    'commercial': ["Marketing-Manager", "Sales-Manager", "Entrepreneur", 'Business-Consultant', "Banker", "Financial-Analyst", "Politician", "Teacher",
-                   "Human-Resources-Manager", "Project-Manager", "Supply-Chain-Manager", "Accountant", "Real-Estate-Agent"],
+    'commercial': ["Marketing_Manager", "Sales_Manager", "Entrepreneur", 'Education', 'Teacher', 'Business_Consultant', "Banker", "Financial_Analyst", "Politician",
+                   "Human_Resources_Manager", "Project_Manager", "Supply_Chain_Manager", "Accountant", "Real_Estate_Agent"],
    
     
     
@@ -127,12 +127,12 @@ technology_rules = []
 # science_rules.append(ctrl.Rule(science_fuzzy_vars['English']['Good'] & science_fuzzy_vars['Economics']['Good'], career_outputs['Geologist']['medium']))
 
 commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['Accounting']['Excellent'], career_outputs['Accountant']['high']))
-commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Commerce']['Good'], career_outputs['Business-Consultant']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Commerce']['Good'], career_outputs['Business_Consultant']['medium']))
 commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Mathematics']['Good'] & commercial_fuzzy_vars['Accounting']['Excellent'], career_outputs['Teacher']['high']))
-commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Computer_Studies']['Good'], career_outputs['Business-Consultant']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Computer_Studies']['Good'], career_outputs['Business_Consultant']['medium']))
 
 arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Literature']['Excellent'] & arts_fuzzy_vars['History']['Excellent'], career_outputs['Writer']['high']))
-arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Good'] & arts_fuzzy_vars['Government']['Good'], career_outputs['Business-Consultant']['medium']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Good'] & arts_fuzzy_vars['Government']['Good'], career_outputs['Business_Consultant']['medium']))
 
 # technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Excellent'] & technology_fuzzy_vars['Computer Studies']['Excellent'], career_outputs['Software_Engineer']['high']))
 # technology_rules.append(ctrl.Rule(technology_fuzzy_vars['English']['Excellent'] & technology_fuzzy_vars['Chemistry']['Good'], career_outputs['Chemical-Engineer']['high']))
@@ -142,6 +142,13 @@ technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Technical_Drawing']['Ex
 technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Technical_Drawing']['Excellent'] & technology_fuzzy_vars['Mathematics']['Excellent'] & technology_fuzzy_vars['Computer_Studies']['Excellent'] & technology_fuzzy_vars['Physics']['Good'], career_outputs['Architect']['high']))
 technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Technical_Drawing']['Good'] & technology_fuzzy_vars['Mathematics']['Excellent'] & technology_fuzzy_vars['Computer_Studies']['Excellent'] & technology_fuzzy_vars['Physics']['Good'], career_outputs['Architect']['medium']))
 technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Technical_Drawing']['Average'] | technology_fuzzy_vars['Mathematics']['Good'], career_outputs['Architect']['low']))
+
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Excellent'] & technology_fuzzy_vars['Data_Processing']['Excellent'] & technology_fuzzy_vars['Computer_Studies']['Excellent'], career_outputs['BigData_Engineer']['high']))
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Excellent'] & technology_fuzzy_vars['Economics']['Excellent'] & (technology_fuzzy_vars['Computer_Studies']['Excellent'] | technology_fuzzy_vars['English']['Excellent']), career_outputs['BigData_Engineer']['high']))
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Excellent'] & technology_fuzzy_vars['Data_Processing']['Good'] & technology_fuzzy_vars['Computer_Studies']['Excellent'] , career_outputs['BigData_Engineer']['medium']))
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Good'] & technology_fuzzy_vars['Data_Processing']['Excellent'] & (technology_fuzzy_vars['Computer_Studies']['Good'] | technology_fuzzy_vars['English']['Excellent']), career_outputs['BigData_Engineer']['medium']))
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Average'] | technology_fuzzy_vars['Computer_Studies']['Average'], career_outputs['BigData_Engineer']['low']))
+
 
 
 technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Biology']['Excellent'] & technology_fuzzy_vars['Chemistry']['Excellent'] & technology_fuzzy_vars['Computer_Studies']['Excellent'], career_outputs['Biomedical-Tech/Engr']['high']))
@@ -153,6 +160,7 @@ technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Biology']['Average'] | 
 
 technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Excellent'] & technology_fuzzy_vars['Data_Processing']['Excellent'] & technology_fuzzy_vars['Computer_Studies']['Excellent'], career_outputs['Data_Scientist']['high']))
 technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Excellent'] & technology_fuzzy_vars['Economics']['Excellent'] & (technology_fuzzy_vars['Computer_Studies']['Excellent'] | technology_fuzzy_vars['English']['Excellent']), career_outputs['Data_Analyst']['high']))
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Excellent'] & technology_fuzzy_vars['Data_Processing']['Excellent'] & technology_fuzzy_vars['Computer_Studies']['Good'] & technology_fuzzy_vars['English']['Excellent'], career_outputs['Data_Analyst']['high']))
 
 technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Excellent'] & technology_fuzzy_vars['Data_Processing']['Good'] & technology_fuzzy_vars['Computer_Studies']['Excellent'] , career_outputs['Data_Scientist']['medium']))
 technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Good'] & technology_fuzzy_vars['Data_Processing']['Excellent'] & (technology_fuzzy_vars['Computer_Studies']['Good'] | technology_fuzzy_vars['English']['Excellent']), career_outputs['Data_Analyst']['medium']))
@@ -164,15 +172,38 @@ technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Average'
 technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Good'] | technology_fuzzy_vars['Chemistry']['Average'] | technology_fuzzy_vars['Computer_Studies']['Average'], career_outputs['Biomedical-Tech/Engr']['low']))
 
 #IT Consultant next
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Excellent'] & technology_fuzzy_vars['Computer_Studies']['Excellent'] & (technology_fuzzy_vars['Physics']['Excellent'] | technology_fuzzy_vars['Technical_Drawing']['Excellent']), career_outputs['IT_Consultant']['high']))
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Excellent'] & technology_fuzzy_vars['Computer_Studies']['Good'] & technology_fuzzy_vars['Technical_Drawing']['Excellent'], career_outputs['IT_Consultant']['medium']))
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Good'] & technology_fuzzy_vars['Computer_Studies']['Excellent'] & (technology_fuzzy_vars['Physics']['Good'] | technology_fuzzy_vars['Technical_Drawing']['Good']), career_outputs['IT_Consultant']['medium']))
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Average'] | technology_fuzzy_vars['Computer_Studies']['Average'] | technology_fuzzy_vars['Physics']['Average'], career_outputs['IT_Consultant']['low']))
 
-# technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Biology']['Excellent'] & technology_fuzzy_vars['Chemistry']['Excellent'] & technology_fuzzy_vars['Agricultural_Science']['Excellent'], career_outputs['Agricultural_Engineering']['high']))
-# technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Biology']['Excellent'] & technology_fuzzy_vars['Chemistry']['Good'] & technology_fuzzy_vars['Agricultural_Science']['Excellent'] & (technology_fuzzy_vars['English']['Good'] | technology_fuzzy_vars['Mathematics']['Good']), career_outputs['Agricultural_Engineering']['medium']))
-# technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Agricultural_Science']['Good'] | technology_fuzzy_vars['Biology']['Average'] | technology_fuzzy_vars['Chemistry']['Good'], career_outputs['Agricultural_Engineering']['low']))
 
 
-# technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Biology']['Excellent'] & technology_fuzzy_vars['Chemistry']['Excellent'] & technology_fuzzy_vars['Agricultural_Science']['Excellent'], career_outputs['Agricultural_Engineering']['high']))
-# technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Biology']['Excellent'] & technology_fuzzy_vars['Chemistry']['Good'] & technology_fuzzy_vars['Agricultural_Science']['Excellent'] & (technology_fuzzy_vars['English']['Good'] | technology_fuzzy_vars['Mathematics']['Good']), career_outputs['Agricultural_Engineering']['medium']))
-# technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Agricultural_Science']['Good'] | technology_fuzzy_vars['Biology']['Average'] | technology_fuzzy_vars['Chemistry']['Good'], career_outputs['Agricultural_Engineering']['low']))
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['English']['Excellent'] & technology_fuzzy_vars['Computer_Studies']['Excellent'] & (technology_fuzzy_vars['Mathematics']['Excellent'] | technology_fuzzy_vars['Technical_Drawing']['Excellent']), career_outputs['IT_Project_Manager']['high']))
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['English']['Excellent'] & technology_fuzzy_vars['Computer_Studies']['Excellent'] & (technology_fuzzy_vars['Mathematics']['Excellent'] | technology_fuzzy_vars['Economics']['Excellent']), career_outputs['IT_Project_Manager']['high']))
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Good'] & technology_fuzzy_vars['Computer_Studies']['Good'] & (technology_fuzzy_vars['Economics']['Good'] | technology_fuzzy_vars['English']['Good']), career_outputs['IT_Project_Manager']['medium']))
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Good'] & technology_fuzzy_vars['Computer_Studies']['Good'] & (technology_fuzzy_vars['English']['Good'] | technology_fuzzy_vars['Technical_Drawing']['Good']), career_outputs['IT_Project_Manager']['medium']))
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Average'] | technology_fuzzy_vars['Computer_Studies']['Average'] | technology_fuzzy_vars['English']['Average'], career_outputs['IT_Project_Manager']['low']))
+
+
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Excellent'] & technology_fuzzy_vars['Computer_Studies']['Excellent'] & technology_fuzzy_vars['Physics']['Excellent'] , career_outputs['Network_Engineer']['high']))
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Excellent'] & technology_fuzzy_vars['Computer_Studies']['Good'] & (technology_fuzzy_vars['Physics']['Excellent'] | technology_fuzzy_vars['Technical_Drawing']['Excellent']), career_outputs['Network_Engineer']['high']))
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Good'] & technology_fuzzy_vars['Computer_Studies']['Excellent'] & (technology_fuzzy_vars['Physics']['Good'] | technology_fuzzy_vars['Technical_Drawing']['Good']), career_outputs['Network_Engineer']['medium']))
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Average'] | technology_fuzzy_vars['Computer_Studies']['Average'] | technology_fuzzy_vars['Physics']['Average'], career_outputs['Network_Engineer']['low']))
+
+
+
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Excellent'] & technology_fuzzy_vars['Computer_Studies']['Excellent'] & (technology_fuzzy_vars['Physics']['Excellent'] | technology_fuzzy_vars['Technical_Drawing']['Excellent']), career_outputs['Software_Engineer']['high']))
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Excellent'] & technology_fuzzy_vars['Computer_Studies']['Excellent'] & (technology_fuzzy_vars['Physics']['Good'] | technology_fuzzy_vars['Technical_Drawing']['Good']), career_outputs['Software_Engineer']['medium']))
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Good'] & technology_fuzzy_vars['Computer_Studies']['Excellent'] & (technology_fuzzy_vars['Physics']['Excellent'] | technology_fuzzy_vars['Technical_Drawing']['Excellent']), career_outputs['Software_Engineer']['medium']))
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Average'] | technology_fuzzy_vars['Computer_Studies']['Average'] | technology_fuzzy_vars['Physics']['Average'], career_outputs['Software_Engineer']['low']))
+
+
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Excellent'] & technology_fuzzy_vars['Computer_Studies']['Excellent'] & technology_fuzzy_vars['Physics']['Excellent'] & technology_fuzzy_vars['Technical_Drawing']['Excellent'], career_outputs['Robotics']['high']))
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Excellent'] & technology_fuzzy_vars['Computer_Studies']['Excellent'] & (technology_fuzzy_vars['Physics']['Excellent'] | technology_fuzzy_vars['Technical_Drawing']['Excellent']), career_outputs['Robotics']['medium']))
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Excellent'] & technology_fuzzy_vars['Computer_Studies']['Good'] & technology_fuzzy_vars['Physics']['Excellent'], career_outputs['Robotics']['medium']))
+technology_rules.append(ctrl.Rule(technology_fuzzy_vars['Mathematics']['Good'] | technology_fuzzy_vars['Computer_Studies']['Average'] | technology_fuzzy_vars['Physics']['Good'], career_outputs['Robotics']['low']))
+
 
 
 
@@ -243,8 +274,15 @@ science_rules.append(ctrl.Rule(science_fuzzy_vars['Mathematics']['Good'] | scien
 
 
 
-science_rules.append(ctrl.Rule(science_fuzzy_vars['Chemistry']['Excellent'] & science_fuzzy_vars['Biology']['Excellent']  & (science_fuzzy_vars['English']['Excellent'] | science_fuzzy_vars['Mathematics']['Excellent']), career_outputs['Chemist']['high']))
 
+
+science_rules.append(ctrl.Rule(science_fuzzy_vars['Chemistry']['Excellent'] & science_fuzzy_vars['Biology']['Excellent'] & science_fuzzy_vars['Catering/Crafts']['Excellent'], career_outputs['Nutritionist']['high']))
+science_rules.append(ctrl.Rule(science_fuzzy_vars['Chemistry']['Excellent'] & science_fuzzy_vars['Biology']['Excellent'] & science_fuzzy_vars['Catering/Crafts']['Good'], career_outputs['Nutritionist']['medium']))
+science_rules.append(ctrl.Rule(science_fuzzy_vars['Chemistry']['Good'] & science_fuzzy_vars['Biology']['Good'] & science_fuzzy_vars['Catering/Crafts']['Excellent'], career_outputs['Nutritionist']['medium']))
+science_rules.append(ctrl.Rule(science_fuzzy_vars['Catering/Crafts']['Average'], career_outputs['Nutritionist']['low']))
+
+
+science_rules.append(ctrl.Rule(science_fuzzy_vars['Chemistry']['Excellent'] & science_fuzzy_vars['Biology']['Excellent']  & (science_fuzzy_vars['English']['Excellent'] | science_fuzzy_vars['Mathematics']['Excellent']), career_outputs['Chemist']['high']))
 science_rules.append(ctrl.Rule(science_fuzzy_vars['Chemistry']['Excellent'] & science_fuzzy_vars['Agricultural_Science']['Good'] & science_fuzzy_vars['Biology']['Good'], career_outputs['Chemist']['medium']))
 science_rules.append(ctrl.Rule(science_fuzzy_vars['Chemistry']['Excellent'] & science_fuzzy_vars['Agricultural_Science']['Good'] & science_fuzzy_vars['Biology']['Good'], career_outputs['Chemist']['medium']))
 science_rules.append(ctrl.Rule(science_fuzzy_vars['Chemistry']['Excellent'] & science_fuzzy_vars['Mathematics']['Good'] & science_fuzzy_vars['Agricultural_Science']['Good'], career_outputs['Chemist']['medium']))
@@ -432,6 +470,183 @@ science_rules.append(ctrl.Rule(science_fuzzy_vars['Biology']['Good'] & science_f
 # science_rules.append(Geo_rule_1, Geo_rule_2, Geo_rule_3, Geo_rule_4, Geo_rule_5, Geo_rule_6, Geo_rule_7, Geo_rule_8, Geo_rule_9)
 # science_rules.append(Hea_rule_1, Hea_rule_2, Hea_rule_3, Hea_rule_4, Hea_rule_5, Hea_rule_6)
 # science_rules.append(Med_rule_1, Med_rule_2, Med_rule_3)
+
+
+
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Accounting']['Excellent'] & commercial_fuzzy_vars['Mathematics']['Excellent'] & commercial_fuzzy_vars['Economics']['Excellent'], career_outputs['Accountant']['high']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Accounting']['Excellent'] & commercial_fuzzy_vars['Mathematics']['Good'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Economics']['Excellent'], career_outputs['Accountant']['high']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Accounting']['Good'] & commercial_fuzzy_vars['Mathematics']['Good'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Computer_Studies']['Excellent'], career_outputs['Accountant']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Accounting']['Good'] & commercial_fuzzy_vars['Mathematics']['Excellent'] & commercial_fuzzy_vars['Economics']['Excellent'], career_outputs['Accountant']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Accounting']['Excellent'] &  commercial_fuzzy_vars['Mathematics']['Good'] & (commercial_fuzzy_vars['Computer_Studies']['Excellent'] |  commercial_fuzzy_vars['Economics']['Excellent']) , career_outputs['Accountant']['medium']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Accounting']['Average'] & commercial_fuzzy_vars['Mathematics']['Average'], career_outputs['Accountant']['low']))
+
+
+
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['Mathematics']['Good'] &  commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Accounting']['Excellent'], career_outputs['Banker']['high']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['Mathematics']['Good'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Computer_Studies']['Excellent'], career_outputs['Banker']['high']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['Mathematics']['Good'] & commercial_fuzzy_vars['Commerce']['Good'] &  (commercial_fuzzy_vars['Computer_Studies']['Excellent'] | commercial_fuzzy_vars['Accounting']['Excellent']), career_outputs['Banker']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Good'] & commercial_fuzzy_vars['Mathematics']['Good'] & commercial_fuzzy_vars['Commerce']['Excellent'] &  (commercial_fuzzy_vars['Computer_Studies']['Excellent'] | commercial_fuzzy_vars['Accounting']['Excellent']), career_outputs['Banker']['medium']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Average'] | commercial_fuzzy_vars['Mathematics']['Average'] | commercial_fuzzy_vars['Commerce']['Average'] | commercial_fuzzy_vars['Accounting']['Average'], career_outputs['Banker']['low']))
+
+
+
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Government']['Excellent'], career_outputs['Business_Consultant']['high']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Accounting']['Excellent'] & commercial_fuzzy_vars['English']['Good'], career_outputs['Business_Consultant']['high']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['Commerce']['Good'] & commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Government']['Excellent'], career_outputs['Business_Consultant']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Good'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Government']['Excellent'], career_outputs['Business_Consultant']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Good'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Accounting']['Excellent'], career_outputs['Business_Consultant']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['Commerce']['Good'] & commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Accounting']['Excellent'], career_outputs['Business_Consultant']['medium']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Average'] | commercial_fuzzy_vars['Commerce']['Average'] | commercial_fuzzy_vars['Accounting']['Average'] | commercial_fuzzy_vars['Government']['Average'] , career_outputs['Business_Consultant']['low']))
+
+
+
+
+
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Excellent'] & commercial_fuzzy_vars['Mathematics']['Good'] & commercial_fuzzy_vars['Biology']['Excellent'], career_outputs['Education']['high']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Mathematics']['Good'] & commercial_fuzzy_vars['Biology']['Excellent'], career_outputs['Education']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Excellent'] & commercial_fuzzy_vars['Mathematics']['Good'] & commercial_fuzzy_vars['Biology']['Good'], career_outputs['Education']['medium']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Average'] | commercial_fuzzy_vars['Biology']['Average'], career_outputs['Education']['low']))
+
+
+
+
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Government']['Excellent'], career_outputs['Entrepreneur']['high']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Accounting']['Excellent'] & commercial_fuzzy_vars['English']['Good'], career_outputs['Entrepreneur']['high']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['Commerce']['Good'] & commercial_fuzzy_vars['Government']['Excellent'], career_outputs['Entrepreneur']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Good'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Government']['Excellent'], career_outputs['Entrepreneur']['medium']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Average'] | commercial_fuzzy_vars['Commerce']['Average'] | commercial_fuzzy_vars['English']['Average'] , career_outputs['Entrepreneur']['low']))
+
+
+
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Mathematics']['Excellent'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Accounting']['Good'] & commercial_fuzzy_vars['Government']['Excellent'], career_outputs['Financial_Analyst']['high']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Mathematics']['Excellent'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Accounting']['Excellent'] & commercial_fuzzy_vars['English']['Good'], career_outputs['Financial_Analyst']['high']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Mathematics']['Excellent'] & commercial_fuzzy_vars['Accounting']['Good'] & commercial_fuzzy_vars['Government']['Excellent'], career_outputs['Financial_Analyst']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Mathematics']['Good'] & commercial_fuzzy_vars['Accounting']['Excellent'] & commercial_fuzzy_vars['Government']['Excellent'], career_outputs['Financial_Analyst']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Mathematics']['Excellent'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Accounting']['Good'], career_outputs['Financial_Analyst']['medium']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Mathematics']['Average'] | commercial_fuzzy_vars['Commerce']['Average'] | commercial_fuzzy_vars['Accounting']['Average'] , career_outputs['Financial_Analyst']['low']))
+
+
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Excellent'] & commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['Civic_Education']['Excellent'], career_outputs['Human_Resources_Manager']['high']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Excellent'] & commercial_fuzzy_vars['Civic_Education']['Excellent'] & commercial_fuzzy_vars['Government']['Excellent'], career_outputs['Human_Resources_Manager']['high']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Excellent'] & commercial_fuzzy_vars['Economics']['Good'] & commercial_fuzzy_vars['Civic_Education']['Good'], career_outputs['Human_Resources_Manager']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Excellent'] & commercial_fuzzy_vars['Civic_Education']['Good'] & commercial_fuzzy_vars['Government']['Good'], career_outputs['Human_Resources_Manager']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Economics']['Good'] & commercial_fuzzy_vars['Civic_Education']['Excellent'], career_outputs['Human_Resources_Manager']['medium']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Average'] | commercial_fuzzy_vars['Economics']['Average'] | commercial_fuzzy_vars['Civic_Education']['Average'] | commercial_fuzzy_vars['Government']['Average'], career_outputs['Human_Resources_Manager']['low']))
+
+
+
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Government']['Excellent'], career_outputs['Marketing_Manager']['high']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Civic_Education']['Excellent'], career_outputs['Marketing_Manager']['high']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['English']['Good']  & commercial_fuzzy_vars['Commerce']['Good'] & commercial_fuzzy_vars['Government']['Good'], career_outputs['Marketing_Manager']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Commerce']['Good'] & commercial_fuzzy_vars['Civic_Education']['Good'], career_outputs['Marketing_Manager']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Good'] & commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Accounting']['Good'], career_outputs['Marketing_Manager']['medium']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Average'] | commercial_fuzzy_vars['Commerce']['Average'] & commercial_fuzzy_vars['English']['Average'], career_outputs['Marketing_Manager']['low']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Civic_Education']['Average'], career_outputs['Marketing_Manager']['low']))
+
+
+
+
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Excellent'] & commercial_fuzzy_vars['Government']['Excellent'] & commercial_fuzzy_vars['Economics']['Excellent'], career_outputs['Politician']['high']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Excellent'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Economics']['Excellent'], career_outputs['Politician']['high']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Excellent'] & commercial_fuzzy_vars['Government']['Good'] & commercial_fuzzy_vars['Economics']['Good'], career_outputs['Politician']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Excellent'] & commercial_fuzzy_vars['Commerce']['Good'] & commercial_fuzzy_vars['Economics']['Excellent'], career_outputs['Politician']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Government']['Excellent'] & commercial_fuzzy_vars['Economics']['Excellent'], career_outputs['Politician']['medium']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Average'] | commercial_fuzzy_vars['Government']['Average'] | commercial_fuzzy_vars['Economics']['Average'], career_outputs['Politician']['low']))
+
+
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Excellent'] & commercial_fuzzy_vars['Civic_Education']['Excellent'] & commercial_fuzzy_vars['Economics']['Excellent'], career_outputs['Project_Manager']['high']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Excellent'] & commercial_fuzzy_vars['Computer_Studies']['Excellent'] & commercial_fuzzy_vars['Civic_Education']['Excellent'], career_outputs['Project_Manager']['high']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Excellent'] & commercial_fuzzy_vars['Computer_Studies']['Good'] & commercial_fuzzy_vars['Economics']['Good'], career_outputs['Project_Manager']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Excellent'] & commercial_fuzzy_vars['Civic_Education']['Good'] & commercial_fuzzy_vars['Economics']['Good'], career_outputs['Project_Manager']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['Civic_Education']['Good'], career_outputs['Project_Manager']['medium']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Average'] | commercial_fuzzy_vars['Civic_Education']['Average'] | commercial_fuzzy_vars['Economics']['Average'], career_outputs['Project_Manager']['low']))
+
+
+
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Excellent'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Economics']['Excellent'], career_outputs['Real_Estate_Agent']['high']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Excellent'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Government']['Excellent'], career_outputs['Real_Estate_Agent']['high']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Economics']['Good'], career_outputs['Real_Estate_Agent']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Government']['Excellent'], career_outputs['Real_Estate_Agent']['medium']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Average'] | commercial_fuzzy_vars['Commerce']['Average'] | commercial_fuzzy_vars['Economics']['Average'], career_outputs['Real_Estate_Agent']['low']))
+
+
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Government']['Excellent'], career_outputs['Sales_Manager']['high']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Civic_Education']['Excellent'], career_outputs['Sales_Manager']['high']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Accounting']['Excellent'], career_outputs['Sales_Manager']['high']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Good'] & commercial_fuzzy_vars['Commerce']['Good'] & commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Government']['Good'], career_outputs['Sales_Manager']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Good'] & commercial_fuzzy_vars['Commerce']['Good'] & commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Civic_Education']['Good'], career_outputs['Sales_Manager']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Good'] & commercial_fuzzy_vars['Commerce']['Good'] & commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Accounting']['Good'], career_outputs['Sales_Manager']['medium']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Average'] & commercial_fuzzy_vars['Commerce']['Average'] & commercial_fuzzy_vars['Government']['Average'], career_outputs['Sales_Manager']['low']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Average'] & commercial_fuzzy_vars['Commerce']['Average'] & commercial_fuzzy_vars['Civic_Education']['Average'], career_outputs['Sales_Manager']['low']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Average'] & commercial_fuzzy_vars['Commerce']['Average'] & commercial_fuzzy_vars['Accounting']['Average'], career_outputs['Sales_Manager']['low']))
+
+
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Excellent'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Economics']['Excellent'], career_outputs['Supply_Chain_Manager']['high']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Excellent'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Accounting']['Excellent'], career_outputs['Supply_Chain_Manager']['high']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Economics']['Excellent'], career_outputs['Supply_Chain_Manager']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Excellent'] & commercial_fuzzy_vars['Accounting']['Good'] & commercial_fuzzy_vars['Economics']['Excellent'], career_outputs['Supply_Chain_Manager']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Accounting']['Excellent'] & commercial_fuzzy_vars['Commerce']['Excellent'], career_outputs['Supply_Chain_Manager']['medium']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Average'] | commercial_fuzzy_vars['Commerce']['Average'] | commercial_fuzzy_vars['Economics']['Average'], career_outputs['Supply_Chain_Manager']['low']))
+
+
+
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Mathematics']['Good'] & commercial_fuzzy_vars['Economics']['Excellent'], career_outputs['Teacher']['high']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Mathematics']['Good'] & commercial_fuzzy_vars['Civic_Education']['Excellent'], career_outputs['Teacher']['high']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Mathematics']['Good'] & commercial_fuzzy_vars['Computer_Studies']['Excellent'], career_outputs['Teacher']['high']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Mathematics']['Good'] & commercial_fuzzy_vars['Economics']['Good'], career_outputs['Teacher']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Mathematics']['Good'] & commercial_fuzzy_vars['Civic_Education']['Good'], career_outputs['Teacher']['medium']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Mathematics']['Good'] & commercial_fuzzy_vars['Computer_Studies']['Good'], career_outputs['Teacher']['medium']))
+
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Average'] & commercial_fuzzy_vars['Mathematics']['Average'] & commercial_fuzzy_vars['Economics']['Average'], career_outputs['Teacher']['low']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Average'] & commercial_fuzzy_vars['Mathematics']['Average'] & commercial_fuzzy_vars['Civic_Education']['Average'], career_outputs['Teacher']['low']))
+commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Average'] & commercial_fuzzy_vars['Mathematics']['Average'] & commercial_fuzzy_vars['Computer_Studies']['Average'], career_outputs['Teacher']['low']))
+
+
+
+
+
+
 
 
 control_systems = {

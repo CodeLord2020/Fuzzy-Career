@@ -1,24 +1,24 @@
 {
 
     "Physicist": ["Quantum Mechanics", "Astrophysics", "Nuclear Physics"],
-    "Biologist": ["Biotec", "Ecology", "Biology", "Marine Biology", "Human Kinetics"],
-    "Chemist": ["Organic Chemistry", "Inorganic Chemistry", "Industrial Chemistry"],
-    "Health": ["Anatomy", "Physiology", "Nursing Science", "Biomedical Tech", "Biochemistry", "Health Education", "Physiotherapy"],
-    "Geologist": ["Applied Geophysics", "Applied Geology", "Petrology", "Geography"],
-    "Accountant": ["Financial Accounting", "Managerial Accounting", "Tax Accounting"],
+    "Biologist": ["Biotec", "Ecology", "Biology", "Marine Biology", "Human Kinetics", "Education and Biology"],
+    "Chemist": ["Organic Chemistry", "Inorganic Chemistry", "Industrial Chemistry", "Education and Chemistry"],
+    "Health": ["Anatomy", "Physiology", "Nursing Science", "Biomedical Tech", "Biochemistry", "Health Education", "Physiotherapy", "Psychology"],
+    "Geologist": ["Applied Geophysics", "Applied Geology", "Petrology", "Geography", "Education and Geography"],
+    "Accountant": ["Financial Accounting", "Managerial Accounting", "Accountancy"],
     "Writer": ["Creative Writing", "Technical Writing", "Journalism"],
     "Engineering":["Mining Eng", "Electrical/Electronics Eng","Mechanical Eng", "Metallurgical & Material Eng", "ICT", "Computer Eng", "Civil Eng", "Industrial & Production Eng"],
-    "Business Lawyer": ["Contract Law", "Corporate Law", "Intellectual Property Law"],
+    "Business_Lawyer": ["Contract Law", "Corporate Law", "Intellectual Property Law"],
     "Meteorologist": ["Meteorology"],
     "Agriculture": ["Forestry/Wood Technology", "Fisheries & Aquaculture", "Ecotourism & Wildlife", "Agric Resource Economics", "Agric Extension & Communication", "Crop Soil & Pest Management", ""],
     "Agricultural_Engineering":["Agricultural Engineering"],
-    "Chemical_Engineering":["Chemical Engineering", "Petrolium & Gas Engineering"],
+    "Chemical_Engineering":["Chemical Engineering", "Petroleum & Gas Engineering"],
     "Zoologist":["Animal Production & Health Services"],
     "Veterinarian":["Veterinary Medicine, Animal Production & Health Services"],
     "Microbiologist":["Microbiology", "Cell Biology & Genetics"],
     "Enviromental":["Surveying & Geoinfomatics", "Urban & Regional Planning", "Building"],
     "Graphics":["Industrial Design"],
-    "Nutrition":["Food Science"],
+    "Nutritionist":["Food Science"],
     "Computing": ["Computer Science", "Information Technology", "Information Systems", "Cyber Security", "Software Enginnering", "ICT", "Computer Engineering"],
     "Physical_Sciences":["Apllied Mathematics", "Applied Statistics", "Actuarial Science", "Radiography"],
     "Medicine":["Dentistry/Dental Surgery", "Medicine & Surgery", "Pharmacy", "Pharmacology", "Medical Lab Science"],
@@ -35,7 +35,23 @@
     "Biomedical-Tech/Engr":["Biotech","Biomedical Tech"],
     "IT_Consultant":["Information Technology", "Information Systems", "Cyber Security"],
     "Network_Engineer":["Information Technology", "Information Systems", "Computer Science"],
-    "Software_Engineer": ["Computer Science", "Information Technology", "Software Enginnering"]
+    "Software_Engineer": ["Computer Science", "Information Technology", "Software Enginnering"],
+
+
+    "Banker":["Banking", "Finance"],
+    "Business_Consultant":["Business Administration", "Business Education"],
+    "Education":["Education & Biology", "Education & English",  "Education & Economics"],
+    "Teacher":["Education & Mathematics", "Education & English"],
+    "Sales_Manager":["Finance", "Business Administration", "Business Education"],
+    "Financial_Analyst":["Accountancy", "Finance", "Insurance"],
+    "Entrepreneur":["Economics", "Business Education", "Business Administration"],
+    "Marketing_Manager":["Economics", "Business Administration"],
+    "Human_Resources_Manager":["Guidance & Counselling", "Industrial Relations", "Personnel Management"],
+    "Project_Manager":["Project-Management", "History & Strategic Studies", "Personnel Management"],
+    "Supply_Chain_Manager":["Business Administration"],
+    "Real_Estate_Agent":["Estate Management"],
+    "Politician":["Political Science", "Social_Works", "Sociology"]
 
 
 }
+
