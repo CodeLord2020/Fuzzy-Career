@@ -701,7 +701,7 @@ def submit_scores():
     print(numerical_scores)
     # Proceed with the fuzzy logic processing using the numerical scores
     all_recommendations = compute_recommendations(field, numerical_scores)
-    recommendations = all_recommendations[:5]
+    recommendations = all_recommendations[:10]
     recommended_careers = []
     for career_name, score in recommendations:
         courses = career_courses.get(career_name, [])
