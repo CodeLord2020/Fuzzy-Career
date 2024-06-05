@@ -39,8 +39,8 @@ fields = {
     },
 
     'arts': {
-        'mandatory': ['English',  'Mathematics', 'Literature', 'Economics', 'Government'],
-        'optional': ['Catering/Crafts', 'Civic_Education', 'History', 'Technical_Drawing', 'Law', 'Physical_Education', 'Computer_Studies']
+        'mandatory': ['English',  'Mathematics', 'Literature', 'Economics', 'Government', "Technical_Drawing"],
+        'optional': ['Catering/Crafts', 'Civic_Education', 'History', 'Music', 'Physical_Education', 'Computer_Studies', 'Religion']
     },
 
     'technology': {
@@ -67,8 +67,8 @@ careers = {
     
     
     
-    'arts': ["Visual-Artist", "Musician", "Actor", "Writer", "Politician", "Journalist", "Teacher", "TV/Radio-Presenter",
-    "Graphic-Designer", "Entrepreneur", "Fashion-Designer", "Interior-Designer", "Architect", "Filmmaker", "Animator"],
+    'arts': ["Visual_Artist", "Musician", "Philosophy", "Writer", "Politician", "Journalist", "Lawyer", "TV/Radio-Presenter", "Photographer",
+    "Graphic_Designer", "Entrepreneur", "Fashion_Designer", "Architect", "Theatre_Arts", "Animator"],
    
    
    
@@ -556,7 +556,6 @@ commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Average'] | 
 
 
 
-
 commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Government']['Excellent'], career_outputs['Marketing_Manager']['high']))
 commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['English']['Good'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Civic_Education']['Excellent'], career_outputs['Marketing_Manager']['high']))
 
@@ -566,8 +565,6 @@ commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Good'] & c
 
 commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Average'] | commercial_fuzzy_vars['Commerce']['Average'] & commercial_fuzzy_vars['English']['Average'], career_outputs['Marketing_Manager']['low']))
 commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['Economics']['Excellent'] & commercial_fuzzy_vars['Commerce']['Excellent'] & commercial_fuzzy_vars['Civic_Education']['Average'], career_outputs['Marketing_Manager']['low']))
-
-
 
 
 
@@ -644,6 +641,185 @@ commercial_rules.append(ctrl.Rule(commercial_fuzzy_vars['English']['Average'] & 
 
 
 
+
+
+
+
+
+
+
+
+
+
+# Rules for Animator
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Technical_Drawing']['Excellent'] & arts_fuzzy_vars['Computer_Studies']['Excellent'], career_outputs['Animator']['high']))
+# arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Technical_Drawing']['Excellent'] & arts_fuzzy_vars['Visual_Arts']['Excellent'], career_outputs['Animator']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Technical_Drawing']['Good'] & arts_fuzzy_vars['Computer_Studies']['Good'], career_outputs['Animator']['medium']))
+# arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Technical_Drawing']['Average'] & arts_fuzzy_vars['Visual_Arts']['Average'], career_outputs['Animator']['low']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Technical_Drawing']['Poor'], career_outputs['Animator']['low']))
+
+
+
+
+# Rules for Architect
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Technical_Drawing']['Excellent'] & arts_fuzzy_vars['Mathematics']['Excellent'] & arts_fuzzy_vars['English']['Excellent'], career_outputs['Architect']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Computer_Studies']['Excellent'] & arts_fuzzy_vars['Mathematics']['Excellent'] & arts_fuzzy_vars['English']['Excellent'], career_outputs['Architect']['high']))
+# arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Technical_Drawing']['Excellent'] & arts_fuzzy_vars['Physics']['Excellent'], career_outputs['Architect']['high']))
+# arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Technical_Drawing']['Good'] & arts_fuzzy_vars['Visual_Arts']['Good'], career_outputs['Architect']['medium']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Technical_Drawing']['Average'] & arts_fuzzy_vars['Mathematics']['Average'], career_outputs['Architect']['low']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Technical_Drawing']['Poor'], career_outputs['Architect']['low']))
+
+
+
+
+# Rules for Entrepreneur
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Economics']['Excellent'] & arts_fuzzy_vars['Mathematics']['Excellent'], career_outputs['Entrepreneur']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Economics']['Excellent'] & arts_fuzzy_vars['Government']['Excellent'], career_outputs['Entrepreneur']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Economics']['Good'] & arts_fuzzy_vars['English']['Good'], career_outputs['Entrepreneur']['medium']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Economics']['Average'] & arts_fuzzy_vars['Government']['Average'], career_outputs['Entrepreneur']['low']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Economics']['Poor'], career_outputs['Entrepreneur']['low']))
+
+
+
+
+# Rules for Fashion_Designer
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Technical_Drawing']['Excellent'] & arts_fuzzy_vars['Mathematics']['Excellent'], career_outputs['Fashion_Designer']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Technical_Drawing']['Excellent'] & arts_fuzzy_vars['Catering/Crafts']['Excellent'], career_outputs['Fashion_Designer']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Technical_Drawing']['Good'] & arts_fuzzy_vars['Economics']['Good'], career_outputs['Fashion_Designer']['medium']))
+# arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Visual_Arts']['Average'] & arts_fuzzy_vars['Technical_Drawing']['Average'], career_outputs['Fashion_Designer']['low']))
+# arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Visual_Arts']['Poor'], career_outputs['Fashion_Designer']['low']))
+
+
+
+
+# Rules for Graphic_Designer
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Technical_Drawing']['Excellent'] & arts_fuzzy_vars['Computer_Studies']['Excellent'], career_outputs['Graphic_Designer']['high']))
+
+
+
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Technical_Drawing']['Excellent'] & arts_fuzzy_vars['Physical_Education']['Excellent'], career_outputs['Graphic_Designer']['high']))
+
+
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Technical_Drawing']['Good'] & arts_fuzzy_vars['Mathematics']['Good'], career_outputs['Graphic_Designer']['medium']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Technical_Drawing']['Average'] & arts_fuzzy_vars['Computer_Studies']['Average'], career_outputs['Graphic_Designer']['low']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Technical_Drawing']['Poor'], career_outputs['Graphic_Designer']['low']))
+
+
+
+
+# Rules for Journalist
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Excellent'] & arts_fuzzy_vars['Literature']['Excellent'], career_outputs['Journalist']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Excellent'] & arts_fuzzy_vars['History']['Excellent'], career_outputs['Journalist']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Good'] & arts_fuzzy_vars['Civic_Education']['Good'], career_outputs['Journalist']['medium']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Average'] & arts_fuzzy_vars['Literature']['Average'], career_outputs['Journalist']['low']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Poor'], career_outputs['Journalist']['low']))
+
+
+# Rules for Lawyer
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Government']['Excellent'] & arts_fuzzy_vars['English']['Excellent'], career_outputs['Lawyer']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Government']['Excellent'] & arts_fuzzy_vars['Literature']['Excellent'], career_outputs['Lawyer']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Government']['Good'] & arts_fuzzy_vars['Economics']['Good'], career_outputs['Lawyer']['medium']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Government']['Average'] & arts_fuzzy_vars['English']['Average'], career_outputs['Lawyer']['low']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Government']['Poor'], career_outputs['Lawyer']['low']))
+
+
+
+
+# Rules for Musician
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Music']['Excellent'] & arts_fuzzy_vars['English']['Excellent'], career_outputs['Musician']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Music']['Excellent'] & arts_fuzzy_vars['Literature']['Excellent'], career_outputs['Musician']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Music']['Excellent'] & arts_fuzzy_vars['Mathematics']['Good'] & arts_fuzzy_vars['Religion']['Excellent'], career_outputs['Musician']['high']))
+
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Music']['Good'] & arts_fuzzy_vars['English']['Good'], career_outputs['Musician']['medium']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Music']['Good'] & arts_fuzzy_vars['Civic_Education']['Good'], career_outputs['Musician']['medium']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Music']['Average'] & arts_fuzzy_vars['English']['Excellent'], career_outputs['Musician']['medium']))
+
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Music']['Average'] & arts_fuzzy_vars['English']['Average'], career_outputs['Musician']['low']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Music']['Poor'], career_outputs['Musician']['low']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Mathematics']['Poor'] & arts_fuzzy_vars['Music']['Average'], career_outputs['Musician']['low']))
+
+
+
+
+
+
+# Rules for Philosophy
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Economics']['Excellent'] & arts_fuzzy_vars['English']['Excellent'], career_outputs['Philosophy']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Government']['Excellent'] & arts_fuzzy_vars['Literature']['Excellent'], career_outputs['Philosophy']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Civic_Education']['Excellent'] & arts_fuzzy_vars['English']['Excellent'], career_outputs['Philosophy']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Economics']['Good'] & arts_fuzzy_vars['Government']['Good'], career_outputs['Philosophy']['medium']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Literature']['Good'] & arts_fuzzy_vars['Civic_Education']['Good'], career_outputs['Philosophy']['medium']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Average'] & arts_fuzzy_vars['Government']['Excellent'], career_outputs['Philosophy']['medium']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Economics']['Average'] & arts_fuzzy_vars['Government']['Average'], career_outputs['Philosophy']['low']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Civic_Education']['Poor'], career_outputs['Philosophy']['low']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Poor'] & arts_fuzzy_vars['Government']['Average'], career_outputs['Philosophy']['low']))
+
+# # Rules for Photographer
+# arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Visual_Arts']['Excellent'] & arts_fuzzy_vars['Technical_Drawing']['Excellent'], career_outputs['Photographer']['high']))
+# arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Visual_Arts']['Excellent'] & arts_fuzzy_vars['Computer_Studies']['Excellent'], career_outputs['Photographer']['high']))
+# arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Visual_Arts']['Good'] & arts_fuzzy_vars['English']['Good'], career_outputs['Photographer']['medium']))
+# arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Visual_Arts']['Average'] & arts_fuzzy_vars['Technical_Drawing']['Average'], career_outputs['Photographer']['low']))
+# arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Visual_Arts']['Poor'], career_outputs['Photographer']['low']))
+
+
+
+
+# Rules for Politician
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Government']['Excellent'] & arts_fuzzy_vars['Economics']['Excellent'], career_outputs['Politician']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Excellent'] & arts_fuzzy_vars['Civic_Education']['Excellent'], career_outputs['Politician']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Government']['Good'] & arts_fuzzy_vars['History']['Good'], career_outputs['Politician']['medium']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Government']['Average'] & arts_fuzzy_vars['Economics']['Average'], career_outputs['Politician']['low']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Government']['Poor'], career_outputs['Politician']['low']))
+
+
+
+
+# Rules for Theatre_Arts
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Excellent'] & arts_fuzzy_vars['Literature']['Excellent'], career_outputs['Theatre_Arts']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Excellent'] & arts_fuzzy_vars['Music']['Excellent'], career_outputs['Theatre_Arts']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Good'] & arts_fuzzy_vars['Civic_Education']['Good'], career_outputs['Theatre_Arts']['medium']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Average'] & arts_fuzzy_vars['Literature']['Average'], career_outputs['Theatre_Arts']['low']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Poor'], career_outputs['Theatre_Arts']['low']))
+
+
+
+
+
+# Rules for TV/Radio-Presenter
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Excellent'] & arts_fuzzy_vars['Literature']['Excellent'], career_outputs['TV/Radio-Presenter']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Excellent'] & arts_fuzzy_vars['Civic_Education']['Excellent'], career_outputs['TV/Radio-Presenter']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Good'] & arts_fuzzy_vars['Economics']['Good'], career_outputs['TV/Radio-Presenter']['medium']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Average'] & arts_fuzzy_vars['Literature']['Average'], career_outputs['TV/Radio-Presenter']['low']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Poor'], career_outputs['TV/Radio-Presenter']['low']))
+
+
+
+
+
+
+# Rules for Visual-Artist
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Literature']['Excellent'] & arts_fuzzy_vars['History']['Excellent'], career_outputs['Visual_Artist']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Excellent'] & arts_fuzzy_vars['Music']['Excellent'], career_outputs['Visual_Artist']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Technical_Drawing']['Excellent'] & arts_fuzzy_vars['Religion']['Excellent'], career_outputs['Visual_Artist']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Literature']['Good'] & arts_fuzzy_vars['Technical_Drawing']['Good'] & arts_fuzzy_vars['Religion']['Excellent'], career_outputs['Visual_Artist']['high']))
+
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Good'] & arts_fuzzy_vars['Music']['Good'], career_outputs['Visual_Artist']['medium']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Mathematics']['Good'] & arts_fuzzy_vars['Technical_Drawing']['Good'], career_outputs['Visual_Artist']['medium']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['English']['Average'] & arts_fuzzy_vars['Religion']['Excellent'], career_outputs['Visual_Artist']['medium']))
+
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Literature']['Average'] & arts_fuzzy_vars['Music']['Average'], career_outputs['Visual_Artist']['low']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Technical_Drawing']['Poor'], career_outputs['Visual_Artist']['low']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Mathematics']['Poor'] & arts_fuzzy_vars['English']['Average'], career_outputs['Visual_Artist']['low']))
+
+
+
+
+# Rules for Writer
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Literature']['Excellent'] & arts_fuzzy_vars['English']['Excellent'], career_outputs['Writer']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Literature']['Excellent'] & arts_fuzzy_vars['History']['Excellent'], career_outputs['Writer']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Literature']['Good'] & arts_fuzzy_vars['Economics']['Good'], career_outputs['Writer']['medium']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Literature']['Average'] & arts_fuzzy_vars['English']['Average'], career_outputs['Writer']['low']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Literature']['Poor'], career_outputs['Writer']['low']))
 
 
 
