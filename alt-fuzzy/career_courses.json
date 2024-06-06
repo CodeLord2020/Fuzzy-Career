@@ -50,8 +50,20 @@
     "Project_Manager":["Project-Management", "History & Strategic Studies", "Personnel Management"],
     "Supply_Chain_Manager":["Business Administration"],
     "Real_Estate_Agent":["Estate Management"],
-    "Politician":["Political Science", "Social_Works", "Sociology"]
+    "Politician":["Political Science", "Social_Works", "Political Science and Conflict Resolution", "Sociology"],
 
+
+    "Musician":["Music"],
+    "Philosophy":["Philosophy", "Philosophy and Religious Studies", "Theology"],
+    "Lawyer":["Law"],
+    "Journalist":["Journalism", "Mass Communication", "Media Studies" ],
+    "Graphic_Designer":["IDD (Graphics)", "Fine Arts and Design"],
+    "Theatre_Arts":["Performing Arsts", "Linguistics", "Theatre and Film Studies", "Drame", "Theatre and Media Arts", "Theatre and Media Arts", "Film Arts"],
+    "Fashion":["Fashion Design", "Fashion Modelling", "Makeup Artistry", "Hair Dressing and Styling"],
+    "Visual_Artist":["Visual and Applied Arts", "Fine Arts", "Apllied Arts", "TV/Radio-Presenter", "Journalism", "Mass Communication"],
+    "Photographer":["Visual and Applied Arts", "Archaeology and Tourism"]
 
 }
+
+
 

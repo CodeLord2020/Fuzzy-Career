@@ -67,7 +67,7 @@ careers = {
     
     
     
-    'arts': ["Visual_Artist", "Musician", "Philosophy", "Writer", "Politician", "Journalist", "Lawyer", "TV/Radio-Presenter", "Photographer",
+    'arts': ["Visual_Artist", "Musician", "Philosophy", "Writer", "Politician", "Journalist", "Athlete", "Lawyer", "TV/Radio-Presenter", "Photographer",
     "Graphic_Designer", "Entrepreneur", "Fashion_Designer", "Architect", "Theatre_Arts", "Animator"],
    
    
@@ -101,7 +101,7 @@ def create_fuzzy_vars(subjects):
 
 science_fuzzy_vars = create_fuzzy_vars(fields['science'])
 commercial_fuzzy_vars = create_fuzzy_vars(fields['commercial'])
-arts_fuzzy_vars = create_fuzzy_vars(fields['arts'])
+arts_fuzzy_vars = create_fuzzy_vars(fields['arts'])  
 technology_fuzzy_vars = create_fuzzy_vars(fields['technology'])
 
 
@@ -669,6 +669,21 @@ arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Computer_Studies']['Excellent'] & a
 arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Technical_Drawing']['Average'] & arts_fuzzy_vars['Mathematics']['Average'], career_outputs['Architect']['low']))
 arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Technical_Drawing']['Poor'], career_outputs['Architect']['low']))
 
+
+
+
+# Rules for Athlete
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Physical_Education']['Excellent'] & arts_fuzzy_vars['English']['Excellent'],  career_outputs['Athlete']['high']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Physical_Education']['Excellent'] & arts_fuzzy_vars['Mathematics']['Excellent'],  career_outputs['Athlete']['high']))
+# arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Physical_Education']['Excellent'] & arts_fuzzy_vars['Civic_Education']['Excellent'],  career_outputs['Athlete']['high']))
+
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Physical_Education']['Excellent'] & arts_fuzzy_vars['English']['Good'],  career_outputs['Athlete']['medium']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Physical_Education']['Excellent'] & arts_fuzzy_vars['Mathematics']['Good'],  career_outputs['Athlete']['medium']))
+# arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Physical_Education']['Excellent'] & arts_fuzzy_vars['Civic_Education']['Good'],  career_outputs['Athlete']['medium']))
+
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Physical_Education']['Average'] & arts_fuzzy_vars['English']['Average'],  career_outputs['Athlete']['low']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Physical_Education']['Average'] & arts_fuzzy_vars['Mathematics']['Average'],  career_outputs['Athlete']['low']))
+arts_rules.append(ctrl.Rule(arts_fuzzy_vars['Physical_Education']['Average'],  career_outputs['Athlete']['low']))
 
 
 
