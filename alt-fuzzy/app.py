@@ -1,8 +1,11 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for
 import numpy as np
+
+
 import skfuzzy as fuzz
 from skfuzzy import control as ctrl
-import matplotlib.pyplot as plt
+
+
 import io, json
 import base64
 
@@ -283,13 +286,11 @@ science_rules.append(ctrl.Rule(science_fuzzy_vars['Catering/Crafts']['Average'],
 
 
 science_rules.append(ctrl.Rule(science_fuzzy_vars['Chemistry']['Excellent'] & science_fuzzy_vars['Biology']['Excellent']  & (science_fuzzy_vars['English']['Excellent'] | science_fuzzy_vars['Mathematics']['Excellent']), career_outputs['Chemist']['high']))
-science_rules.append(ctrl.Rule(science_fuzzy_vars['Chemistry']['Excellent'] & science_fuzzy_vars['Agricultural_Science']['Good'] & science_fuzzy_vars['Biology']['Good'], career_outputs['Chemist']['medium']))
+science_rules.append(ctrl.Rule(science_fuzzy_vars['Chemistry']['Good'] & science_fuzzy_vars['Agricultural_Science']['Good'] & science_fuzzy_vars['Biology']['Excellent'], career_outputs['Chemist']['medium']))
 science_rules.append(ctrl.Rule(science_fuzzy_vars['Chemistry']['Excellent'] & science_fuzzy_vars['Agricultural_Science']['Good'] & science_fuzzy_vars['Biology']['Good'], career_outputs['Chemist']['medium']))
 science_rules.append(ctrl.Rule(science_fuzzy_vars['Chemistry']['Excellent'] & science_fuzzy_vars['Mathematics']['Good'] & science_fuzzy_vars['Agricultural_Science']['Good'], career_outputs['Chemist']['medium']))
 
-science_rules.append(ctrl.Rule(science_fuzzy_vars['Chemistry']['Average'] & science_fuzzy_vars['Mathematics']['Average'] & science_fuzzy_vars['Physics']['Poor'], career_outputs['Chemist']['low']))
-science_rules.append(ctrl.Rule(science_fuzzy_vars['Chemistry']['Average'] & science_fuzzy_vars['Mathematics']['Average'] & science_fuzzy_vars['Biology']['Poor'], career_outputs['Chemist']['low']))
-science_rules.append(ctrl.Rule(science_fuzzy_vars['Chemistry']['Average'] & science_fuzzy_vars['Mathematics']['Average'] & science_fuzzy_vars['Computer_Studies']['Average'], career_outputs['Chemist']['low']))
+science_rules.append(ctrl.Rule(science_fuzzy_vars['Chemistry']['Average'] , career_outputs['Chemist']['low']))
 
 
 
