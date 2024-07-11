@@ -6,32 +6,16 @@
     <title>FuzzyCareer - Discover Your Ideal Career</title>
     <link rel="stylesheet" href="/static/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            background-color: rgb(71, 92, 101);
-        }
-
-        #error-message {
-            display: none;
-            background-color: azure;
-            color: rgb(255, 0, 0);
-            font-weight: bold;
-        }
-        
-    </style>
 </head>
 <body>
     <div class="container mt-5">
         <div class="jumbotron text-center">
-            <!-- <h1 class="display-4">FuzzyCareer</h1> -->
-            <h1 class="display-4">
-                <a href="/" style="text-decoration: none; color: inherit;">FuzzyCareer</a>
-            </h1>
+            <h1 class="display-4">FuzzyCareer</h1>
             <p class="lead">Discover your ideal career based on your academic strengths</p>
         </div>
 
         <div id="field-selection" class="text-center">
-            <h2 style="color: whitesmoke;">Select Your Field of Study</h2>
+            <h2>Select Your Field of Study</h2>
             <div class="btn-group btn-group-toggle mt-3" data-toggle="buttons">
                 <label class="btn btn-primary">
                     <input type="radio" name="field" id="science" onclick="selectField('science')"> Science
@@ -48,21 +32,17 @@
             </div>
         </div>
 
-
-
-
         <div id="subject-selection" class="mt-5" style="display: none;">
-            <h2 class="text-center" style="color: whitesmoke;">Enter Your Grades</h2>
+            <h2 class="text-center">Enter Your Scores</h2>
             <form id="subject-form" class="mt-4">
                 <div id="subjects-container"></div>
                 <div class="text-center mt-4">
-                    <p id="error-message" style="background-color: azure; color: rgb(255, 0, 0);">Error: </p>
+                    <p id="error-message" class="text-danger text-center mt-3"></p>
                     <button type="button" class="btn btn-success" id="submit-button" onclick="submitScores()">Submit</button>
                 </div>
                 
             </form>
         </div>
-
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
@@ -70,137 +50,3 @@
     <script src="/static/script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-<!-- 
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FuzzyCareer - Discover Your Ideal Career</title>
-    <link rel="stylesheet" href="/static/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-    <div class="container-fluid p-0">
-        <div class="jumbotron text-center bg-primary text-white mb-0">
-            <h1 class="display-4">FuzzyCareer</h1>
-            <p class="lead">Discover your ideal career based on your academic strengths</p>
-        </div>
-
-        <div class="bg-light pt-5 pb-3">
-            <div class="container">
-                <div id="field-selection" class="text-center">
-                    <h2>Select Your Field of Study</h2>
-                    <div class="btn-group btn-group-toggle mt-3" data-toggle="buttons">
-                        <label class="btn btn-outline-primary">
-                            <input type="radio" name="field" id="science" onclick="selectField('science')"> Science
-                        </label>
-                        <label class="btn btn-outline-primary">
-                            <input type="radio" name="field" id="commercial" onclick="selectField('commercial')"> Commercial
-                        </label>
-                        <label class="btn btn-outline-primary">
-                            <input type="radio" name="field" id="arts" onclick="selectField('arts')"> Arts
-                        </label>
-                        <label class="btn btn-outline-primary">
-                            <input type="radio" name="field" id="technology" onclick="selectField('technology')"> Technology
-                        </label>
-                    </div>
-                </div>
-
-                <div id="subject-selection" class="mt-5" style="display: none;">
-                    <h2 class="text-center">Enter Your Scores</h2>
-                    <form id="subject-form" class="mt-4">
-                        <div id="subjects-container" class="row justify-content-center"></div>
-                        <div class="text-center mt-4">
-                            <p id="error-message" class="text-danger text-center mt-3"></p>
-                            <button type="button" class="btn btn-success" id="submit-button" onclick="submitScores()">Submit</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="/static/script.js"></script>
-</body>
-</html> -->
-
-
-<!-- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FuzzyCareer - Discover Your Ideal Career</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-    <header class="jumbotron">
-        <div class="container">
-            <h1>FuzzyCareer</h1>
-            <p>Discover your ideal career based on your academic strengths</p>
-        </div>
-    </header>
-
-    <main class="container">
-
-         <div id="field-selection" class="text-center">
-            <h2>Select Your Field of Study</h2>
-            <div class="btn-group btn-group-toggle mt-3" data-toggle="buttons">
-                <label class="btn btn-primary">
-                    <input type="radio" name="field" id="science" onclick="selectField('science')"> Science
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="field" id="commercial" onclick="selectField('commercial')"> Commercial
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="field" id="arts" onclick="selectField('arts')"> Arts
-                </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="field" id="technology" onclick="selectField('technology')"> Technology
-                </label>
-            </div>
-        </div>
-
-        <section id="field-selection">
-            <h2>Select Your Field of Study</h2>
-            <div class="btn-group">
-                <label class="field-btn">
-                    <input type="radio" name="field" onclick="selectField('science')"> Science
-                </label>
-                <label class="field-btn">
-                    <input type="radio" name="field" onclick="selectField('commercial')"> Commercial
-                </label>
-                <label class="field-btn">
-                    <input type="radio" name="field" onclick="selectField('arts')"> Arts
-                </label>
-                <label class="field-btn">
-                    <input type="radio" name="field" onclick="selectField('technology')"> Technology
-                </label>
-            </div>
-        </section>
-
-        <section id="subject-selection" style="display: none;">
-            <h2>Enter Your Scores</h2>
-            <form id="subject-form">
-                <div id="subjects-container"></div>
-                <div class="text-center">
-                    <p id="error-message" class="error-message"></p>
-                    <button type="button" id="submit-button" onclick="submitScores()">Submit</button>
-                </div>
-            </form>
-        </section>
-    </main>
-
-    <script src="/static/script.js"></script>
-</body>
-</html>  -->
